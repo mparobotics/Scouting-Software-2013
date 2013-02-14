@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DDF440FD16CD68E200729D20"
-               BuildableName = "Scouting.app"
-               BlueprintName = "Scouting"
-               ReferencedContainer = "container:Scouting.xcodeproj">
+               BlueprintIdentifier = "DDF4414416CD713700729D20"
+               BuildableName = "Scouting Application.app"
+               BlueprintName = "Scouting Application"
+               ReferencedContainer = "container:Scouting Application.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,20 +32,20 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DDF4412316CD68E200729D20"
-               BuildableName = "ScoutingTests.octest"
-               BlueprintName = "ScoutingTests"
-               ReferencedContainer = "container:Scouting.xcodeproj">
+               BlueprintIdentifier = "DDF4416A16CD713700729D20"
+               BuildableName = "Scouting ApplicationTests.octest"
+               BlueprintName = "Scouting ApplicationTests"
+               ReferencedContainer = "container:Scouting Application.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DDF440FD16CD68E200729D20"
-            BuildableName = "Scouting.app"
-            BlueprintName = "Scouting"
-            ReferencedContainer = "container:Scouting.xcodeproj">
+            BlueprintIdentifier = "DDF4414416CD713700729D20"
+            BuildableName = "Scouting Application.app"
+            BlueprintName = "Scouting Application"
+            ReferencedContainer = "container:Scouting Application.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -61,10 +61,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DDF440FD16CD68E200729D20"
-            BuildableName = "Scouting.app"
-            BlueprintName = "Scouting"
-            ReferencedContainer = "container:Scouting.xcodeproj">
+            BlueprintIdentifier = "DDF4414416CD713700729D20"
+            BuildableName = "Scouting Application.app"
+            BlueprintName = "Scouting Application"
+            ReferencedContainer = "container:Scouting Application.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -79,10 +79,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DDF440FD16CD68E200729D20"
-            BuildableName = "Scouting.app"
-            BlueprintName = "Scouting"
-            ReferencedContainer = "container:Scouting.xcodeproj">
+            BlueprintIdentifier = "DDF4414416CD713700729D20"
+            BuildableName = "Scouting Application.app"
+            BlueprintName = "Scouting Application"
+            ReferencedContainer = "container:Scouting Application.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
