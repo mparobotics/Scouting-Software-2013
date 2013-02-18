@@ -26,5 +26,47 @@ function core() {
     };
 }
 
-
 var Core = new core;
+
+function view() {
+    this.pushView = function(view) {
+        switch(view) {
+                case 1:
+                Core.showId('view1');
+                Core.hideId('view2');
+                Core.hideId('view3');
+                Core.hideId('view4');
+                Core.hideId('view5');           
+                break;
+                case 2:
+                Core.hideId('view1');
+                Core.showId('view2');
+                Core.hideId('view3');
+                Core.hideId('view4');
+                Core.hideId('view5');           
+                break;
+                case 3:
+                Core.hideId('view1');
+                Core.hideId('view2');
+                Core.showId('view3');
+                Core.hideId('view4');
+                Core.hideId('view5');           
+                break;
+                case 4:
+                Core.hideId('view1');
+                Core.hideId('view2');
+                Core.hideId('view3');
+                Core.showId('view4');
+                Core.hideId('view5');           
+                break;
+                case 5:
+                Core.hideId('view1');
+                Core.hideId('view2');
+                Core.hideId('view3');
+                Core.hideId('view4');
+                Core.showId('view5');           
+                break;
+        }
+    };
+}
+var View = new view;

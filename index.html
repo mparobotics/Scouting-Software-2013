@@ -18,7 +18,7 @@
     <body>
         <div id="content">
             <div id="view1">
-                <!-- View 1 -->
+                <!-- View 1 (Intro) -->
                 <h1>MPAror</h1>
                 <h2>Robotics</h2>
                 <h3>Scout Central</h3>
@@ -27,11 +27,11 @@
                     <p>Device Number:</p>
                     <input type="text" pattern="[0-9]*" />
                     <br />
-                    <input type="button" value="Next" />
+                    <input type="button" value="Next" onclick="View.pushView(2)" />
                 </form>
             </div>
             <div id="view2">
-                <!-- View 2 -->
+                <!-- View 2 (Match) -->
                 <h1>Match</h1>
                 <br />
                 <form>
@@ -44,11 +44,11 @@
                     <p>Teams:</p>
                     <br />
                     <input type="text" pattern="[0-9]*" /><input type="text" pattern="[0-9]*" /><input type="text" pattern="[0-9]*" />
-                    <input type="button" value="Next" />
+                    <input type="button" value="Next" onclick="View.pushView(2)" />
                 </form>
             </div>
             <div id="view3">
-                <!-- View 1 -->
+                <!-- View 3 (Stats) -->
                 <h1>MPAror</h1>
                 <h2>Robotics</h2>
                 <h3>Scout Central</h3>
@@ -57,11 +57,11 @@
                 <form>
                     <input type="text" pattern="[0-9]*" />
                     <br />
-                    <input type="button" value="Next" />
+                    <input type="button" value="Next" onclick="View.pushView(2)" />
                 </form>
             </div>
             <div id="view4">
-                <!-- View 1 -->
+                <!-- View 4 (Finalize) -->
                 <h1>MPAror</h1>
                 <h2>Robotics</h2>
                 <h3>Scout Central</h3>
@@ -70,7 +70,20 @@
                 <form>
                     <input type="text" pattern="[0-9]*" />
                     <br />
-                    <input type="button" value="Next" />
+                    <input type="button" value="Next" onclick="View.pushView(2)" />
+                </form>
+            </div>
+            <div id="view5">
+                <!-- View 5 (Sync) -->
+                <h1>MPAror</h1>
+                <h2>Robotics</h2>
+                <h3>Scout Central</h3>
+                <br />
+                <p>Device Number:</p>
+                <form>
+                    <input type="text" pattern="[0-9]*" />
+                    <br />
+                    <input type="button" value="Next" onclick="View.pushView(2)" />
                 </form>
             </div>
         </div>
