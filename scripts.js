@@ -57,12 +57,15 @@ function data() {
     this.lastSync = localStorage.getItem('lastSync');
     this.teamData = localStorage.getItem('teamData');
     this.matchData = localStorage.getItem('matchData');
+    this.team1 = "";
+    this.team2 = "";
+    this.team3 = "";
     
     this.checkDeviceId = function() {
         if (Data.id > 0) {
             View.pushView(2);
         } else {
-            return false;
+            View.pushView(1);
         }
     };
     
@@ -73,10 +76,15 @@ function data() {
         return true;
     };
     
-    this.load = function() {
-        //Fill device id
-        //Launch sync
-        Sync.check();
+    this.setTeams = function() {
+        Data.team1 = document.getElementById('team1').value;
+        Data.team2 = document.getElementById('team2').value;
+        Data.team3 = document.getElementById('team3').value;
+        document.getElementById('teamStat1Label').innerHTML = "Team: "+Data.team1;
+        document.getElementById('teamStat2Label').innerHTML = "Team: "+Data.team2;
+        document.getElementById('teamStat3Label').innerHTML = "Team: "+Data.team3;
+        View.pushView(3);
+        return true;
     };
 }
 

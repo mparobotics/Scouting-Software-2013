@@ -5,6 +5,10 @@ body {
     background: white;
 }
 
+input {
+    text-align: center;
+}
+
 #content {
     background: #2A81F2;
     color: white;
@@ -25,7 +29,7 @@ body {
 
 #view3 {
     display: none;
-    height: 525px;
+    height: 550px;
 }
 
 #view4 {
@@ -54,16 +58,6 @@ body {
 }
 
 .scoreDetailObject {
-    display: none;
+    /*display: none;*/
     margin: auto;
-}
-
-input[type=checkbox]
-{
-  /* Double-sized Checkboxes */
-  -ms-transform: scale(2); /* IE */
-  -moz-transform: scale(2); /* FF */
-  -webkit-transform: scale(2); /* Safari and Chrome */
-  -o-transform: scale(2); /* Opera */
-  padding: 10px;
 }
