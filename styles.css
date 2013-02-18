@@ -1,0 +1,32 @@
+/* CSS Document */
+
+body {
+    font-family: arial;
+    background: white;
+}
+
+#content {
+    background: #2A81F2;
+    color: white;
+    border-radius: 5px;
+    width: 95%;
+    height: 500px;
+    margin: auto;
+    text-align: center;
+}
+
+#view1 {
+    display: block;
+}
+
+#view2 {
+    display: none;
+}
+
+#view3 {
+    display: none;
+}
+
+#view4 {
+    display: none;
+}
