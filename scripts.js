@@ -28,7 +28,7 @@ function sync() {
           if (xmlhttp.readyState==4 && xmlhttp.status==200)
             {
                 if(xmlhttp.responseText == "alive") {
-                    Sync.sync();
+                    Sync.sync(false);
                 }
             }
           }
@@ -41,12 +41,46 @@ function sync() {
         delay('Sync.check();',10000);
     };
     
-    this.sync = function() {
+    this.sync = function(push) {
         console.log("Sync started!");
+        View.pushView(5);
+        if (push) {
+        }
     };
 }
 
 var Sync = new sync;
+
+function data() {
+    
+    this.id = localStorage.getItem('deviceId');
+    this.lastSync = localStorage.getItem('lastSync');
+    this.teamData = localStorage.getItem('teamData');
+    this.matchData = localStorage.getItem('matchData');
+    
+    this.checkDeviceId = function() {
+        if (Data.id > 0) {
+            View.pushView(2);
+        } else {
+            return false;
+        }
+    };
+    
+    this.setDeviceId = function() {
+        localStorage.setItem('deviceId', document.getElementById('deviceNumber').value);
+        Data.id = localStorage.getItem('deviceId');
+        View.pushView(2);
+        return true;
+    };
+    
+    this.load = function() {
+        //Fill device id
+        //Launch sync
+        Sync.check();
+    };
+}
+
+var Data = new data;
 
 function core() {
     this.showId = function(id) {
@@ -59,6 +93,7 @@ function core() {
     
     this.load = function() {
         //Fill device id
+        Data.checkDeviceId();
         //Launch sync
         Sync.check();
     };
