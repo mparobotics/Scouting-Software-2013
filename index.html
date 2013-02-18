@@ -51,7 +51,7 @@
                 <!-- View 3 (Stats) -->
                 <h1>Stats</h1>
                 <br />
-                <div class="teamStat">
+                <div class="teamStat" id="teamStat1">
                     <form>
                         <p>Team: XXXX</p>
                         <div class="scoreDetail">
@@ -65,7 +65,7 @@
                         </div>
                         <br />
                         <div class="scoreDetail">
-                            <input type="checkbox" /> Shooting<br />
+                            <input type="checkbox" id="scoreDetailBox12" onClick="ScoreDetail.checkDetail(1,2)" /> Shooting<br />
                             <select id="scoreDetailObject12" class="scoreDetailObject">
                                 <option value="3">Greater than 10 points</option>
                                 <option value="2">5-10 points</option>
@@ -74,7 +74,7 @@
                         </div>
                         <br />
                         <div class="scoreDetail">
-                            <input type="checkbox" /> Climbing<br />
+                            <input type="checkbox" id="scoreDetailBox13" onClick="ScoreDetail.checkDetail(1,3)" /> Climbing<br />
                             <select id="scoreDetailObject13" class="scoreDetailObject">
                                 <option value="3">30 points</option>
                                 <option value="2">20 points</option>
@@ -84,48 +84,102 @@
                         </div>
                         <br />
                         <div class="scoreDetail">
-                            <input type="checkbox" /> Assisting<br />
+                            <input type="checkbox" id="scoreDetailBox14" onClick="ScoreDetail.checkDetail(1,4)" /> Assisting<br />
                             <select id="scoreDetailObject14" class="scoreDetailObject">
                                 <option value="3">Outstanding</option>
                                 <option value="2">Average</option>
                                 <option value="1">Poor</option>
                             </select>
                             <p>Comments:</p>
-                            <input  id="scoreDetailObject15" class="scoreDetailObject" type="text" required />
+                            <input id="scoreDetailObject15" type="text" required />
                         </div>
                     </form>
                 </div>
-                <div class="teamStat">
+                <div class="teamStat" id="teamStat2">
                     <form>
                         <p>Team: XXXX</p>
-                        <div>
-                            <input type="checkbox" /><p>Thoughts</p>
+                        <div class="scoreDetail">
+                            <p>Thoughts</p>
+                            <select id="scoreDetailObject21" class="scoreDetailObject" style="display: block;">
+                                <option value="3">Outstanding</option>
+                                <option value="2">Average</option>
+                                <option value="1">Poor</option>
+                                <option value="0">Broken</option>
+                            </select>
                         </div>
-                        <div>
-                            <input type="checkbox" /><p>Shooting</p>
+                        <br />
+                        <div class="scoreDetail">
+                            <input type="checkbox" id="scoreDetailBox22" onClick="ScoreDetail.checkDetail(2,2)" /> Shooting<br />
+                            <select id="scoreDetailObject22" class="scoreDetailObject">
+                                <option value="3">Greater than 10 points</option>
+                                <option value="2">5-10 points</option>
+                                <option value="1">Less than 10 points</option>
+                            </select>
                         </div>
-                        <div>
-                            <input type="checkbox" /><p>Climbing</p>
+                        <br />
+                        <div class="scoreDetail">
+                            <input type="checkbox" id="scoreDetailBox23" onClick="ScoreDetail.checkDetail(2,3)" /> Climbing<br />
+                            <select id="scoreDetailObject23" class="scoreDetailObject">
+                                <option value="3">30 points</option>
+                                <option value="2">20 points</option>
+                                <option value="1">10 points</option>
+                                <option value="0">Failed</option>
+                            </select>
                         </div>
-                        <div>
-                            <input type="checkbox" /><p>Assisting</p>
+                        <br />
+                        <div class="scoreDetail">
+                            <input type="checkbox" id="scoreDetailBox24" onClick="ScoreDetail.checkDetail(2,4)" /> Assisting<br />
+                            <select id="scoreDetailObject24" class="scoreDetailObject">
+                                <option value="3">Outstanding</option>
+                                <option value="2">Average</option>
+                                <option value="1">Poor</option>
+                            </select>
+                            <p>Comments:</p>
+                            <input id="scoreDetailObject25" type="text" required />
                         </div>
                     </form>
                 </div>
-                <div class="teamStat">
+                <div class="teamStat" id="teamStat3">
                     <form>
                         <p>Team: XXXX</p>
-                        <div>
-                            <input type="checkbox" /><p>Thoughts</p>
+                        <div class="scoreDetail">
+                            <p>Thoughts</p>
+                            <select id="scoreDetailObject31" class="scoreDetailObject" style="display: block;">
+                                <option value="3">Outstanding</option>
+                                <option value="2">Average</option>
+                                <option value="1">Poor</option>
+                                <option value="0">Broken</option>
+                            </select>
                         </div>
-                        <div>
-                            <input type="checkbox" /><p>Shooting</p>
+                        <br />
+                        <div class="scoreDetail">
+                            <input type="checkbox" id="scoreDetailBox32" onClick="ScoreDetail.checkDetail(3,2)" /> Shooting<br />
+                            <select id="scoreDetailObject32" class="scoreDetailObject">
+                                <option value="3">Greater than 10 points</option>
+                                <option value="2">5-10 points</option>
+                                <option value="1">Less than 10 points</option>
+                            </select>
                         </div>
-                        <div>
-                            <input type="checkbox" /><p>Climbing</p>
+                        <br />
+                        <div class="scoreDetail">
+                            <input type="checkbox" id="scoreDetailBox33" onClick="ScoreDetail.checkDetail(3,3)" /> Climbing<br />
+                            <select id="scoreDetailObject33" class="scoreDetailObject">
+                                <option value="3">30 points</option>
+                                <option value="2">20 points</option>
+                                <option value="1">10 points</option>
+                                <option value="0">Failed</option>
+                            </select>
                         </div>
-                        <div>
-                            <input type="checkbox" /><p>Assisting</p>
+                        <br />
+                        <div class="scoreDetail">
+                            <input type="checkbox" id="scoreDetailBox34" onClick="ScoreDetail.checkDetail(3,4)" /> Assisting<br />
+                            <select id="scoreDetailObject34" class="scoreDetailObject">
+                                <option value="3">Outstanding</option>
+                                <option value="2">Average</option>
+                                <option value="1">Poor</option>
+                            </select>
+                            <p>Comments:</p>
+                            <input id="scoreDetailObject35" type="text" required />
                         </div>
                     </form>
                 </div>

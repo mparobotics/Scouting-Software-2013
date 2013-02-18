@@ -68,5 +68,25 @@ function view() {
                 break;
         }
     };
+                
+    this.openDetail = function(group, module) {
+        Core.showId('scoreDetailObject'+group+module);
+                
+    };
+                
+    this.closeDetail = function(group, module) {
+        Core.hideId('scoreDetailObject'+group+module);
+    };
 }
 var View = new view;
+                
+function scoreDetail() {
+    this.checkDetail = function(group, module) {
+        if (document.getElementById('scoreDetailBox'+group+module).checked) {
+            View.openDetail(group, module);
+        } else {
+            View.closeDetail(group, module);
+        }
+    };
+}
+var ScoreDetail = new scoreDetail;
