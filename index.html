@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html manifest="manifest/cache.manifest">
+<html manifest="manifest/cache.manifestt">
     <head>
 
         <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
@@ -9,7 +9,7 @@
         <link rel="apple-touch-icon" href="logo.png"/>
 
         <link rel="apple-touch-startup-image" href="startup.png" />
-        <link rel="stylesheet" href="styles.css" type="text/css" media="screen, mobile" title="main" charset="utf-8">
+        <link rel="stylesheet" href="styles.css" type="text/css" media="screen, mobile" title="main" charset="utf-8" />
         
         <script type="text/javascript" src="scripts.js"></script>
         
@@ -54,41 +54,44 @@
                 <div class="teamStat">
                     <form>
                         <p>Team: XXXX</p>
-                        <div>
-                            <input type="checkbox" /><p>Thoughts</p>
-                            <section>
-                                <option>Outstanding</option>
-                                <option>Average</option>
-                                <option>Poor</option>
-                                <option>Broken</option>
-                            </section>
+                        <div class="scoreDetail">
+                            <p>Thoughts</p>
+                            <select id="scoreDetailObject11" class="scoreDetailObject" style="display: block;">
+                                <option value="3">Outstanding</option>
+                                <option value="2">Average</option>
+                                <option value="1">Poor</option>
+                                <option value="0">Broken</option>
+                            </select>
                         </div>
-                        <div>
-                            <input type="checkbox" /><p>Shooting</p>
-                            <section>
-                                <option>Greater than 10 points</option>
-                                <option>5-10 points</option>
-                                <option>Less than 10 points</option>
-                            </section>
+                        <br />
+                        <div class="scoreDetail">
+                            <input type="checkbox" /> Shooting<br />
+                            <select id="scoreDetailObject12" class="scoreDetailObject">
+                                <option value="3">Greater than 10 points</option>
+                                <option value="2">5-10 points</option>
+                                <option value="1">Less than 10 points</option>
+                            </select>
                         </div>
-                        <div>
-                            <input type="checkbox" /><p>Climbing</p>
-                            <section>
-                                <option>30 points</option>
-                                <option>20 points</option>
-                                <option>10 points</option>
-                                <option>Failed</option>
-                            </section>
+                        <br />
+                        <div class="scoreDetail">
+                            <input type="checkbox" /> Climbing<br />
+                            <select id="scoreDetailObject13" class="scoreDetailObject">
+                                <option value="3">30 points</option>
+                                <option value="2">20 points</option>
+                                <option value="1">10 points</option>
+                                <option value="0">Failed</option>
+                            </select>
                         </div>
-                        <div>
-                            <input type="checkbox" /><p>Assisting</p>
-                            <section>
-                                <option>Outstanding</option>
-                                <option>Average</option>
-                                <option>Poor</option>
-                            </section>
+                        <br />
+                        <div class="scoreDetail">
+                            <input type="checkbox" /> Assisting<br />
+                            <select id="scoreDetailObject14" class="scoreDetailObject">
+                                <option value="3">Outstanding</option>
+                                <option value="2">Average</option>
+                                <option value="1">Poor</option>
+                            </select>
                             <p>Comments:</p>
-                            <input type="text" required />
+                            <input  id="scoreDetailObject15" class="scoreDetailObject" type="text" required />
                         </div>
                     </form>
                 </div>

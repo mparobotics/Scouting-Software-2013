@@ -41,6 +41,18 @@ body {
     width: 30%;
     margin: 1%;
     border-radius: 5px;
-    border: 2px solid orange;
+    border: 5px solid orange;
     float: left;
+}
+
+.scoreDetail {
+    padding: 2px;
+    border: 2px solid orange;
+    border-left: 0px;
+    border-right: 0px;
+}
+
+.scoreDetailObject {
+    display: none;
+    margin: auto;
 }
