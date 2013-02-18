@@ -14,7 +14,39 @@ function Apple (type) {
 
 */
 
+function delay(command, time) {
+    setTimeout(command, time);
+}
 
+function sync() {
+    this.check = function(id) {
+        var xmlhttp;
+        var output = "";
+        xmlhttp=new XMLHttpRequest();
+        xmlhttp.onreadystatechange=function()
+          {
+          if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+                if(xmlhttp.responseText == "alive") {
+                    Sync.sync();
+                }
+            }
+          }
+        xmlhttp.open("GET","/server.php?query=alive",true);
+        xmlhttp.send();
+        Sync.resetTimer();
+    };
+    
+    this.resetTimer = function(id) {
+        delay('Sync.check();',10000);
+    };
+    
+    this.sync = function() {
+        console.log("Sync started!");
+    };
+}
+
+var Sync = new sync;
 
 function core() {
     this.showId = function(id) {
@@ -23,6 +55,12 @@ function core() {
     
     this.hideId = function(id) {
         document.getElementById(id).style.display = "none";
+    };
+    
+    this.load = function() {
+        //Fill device id
+        //Launch sync
+        Sync.check();
     };
 }
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html manifest="manifest/cache.manifest">
+<html manifest="manifest/cache.manifestt">
     <head>
 
         <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
@@ -183,19 +183,16 @@
                         </div>
                     </form>
                 </div>
+                <input type="button" value="Next" onclick="View.pushView(4)" />
             </div>
             <div id="view4">
                 <!-- View 4 (Finalize) -->
-                <h1>MPAror</h1>
-                <h2>Robotics</h2>
-                <h3>Scout Central</h3>
-                <br />
-                <p>Device Number:</p>
-                <form>
-                    <input type="text" pattern="[0-9]*" />
-                    <br />
-                    <input type="button" value="Next" onclick="View.pushView(2)" />
-                </form>
+                <h1>Finalize?</h1>
+                <hr />
+                <h2>Match Score:</h2>
+                <input type="text" id="redScore" value="Red Score" pattern="[0-9]*" required />|<input type="text" id="blueScore" value="Blue Score" pattern="[0-9]*" required />
+                <br /><br />
+                <input type="button" value="Submit Match" />|<input type="button" value="Discard Match" />|<input type="button" value="Flag For Error and Submit" />
             </div>
             <div id="view5">
                 <!-- View 5 (Sync) -->
