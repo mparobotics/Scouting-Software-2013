@@ -12,6 +12,7 @@ body {
     width: 95%;
     margin: auto;
     text-align: center;
+    padding: 10px;
 }
 
 #view1 {
@@ -28,4 +29,18 @@ body {
 
 #view4 {
     display: none;
+}
+
+#view5 {
+    display: none;
+}
+
+.teamStat {
+    background: white;
+    color: black;
+    width: 30%;
+    margin: 1%;
+    border-radius: 5px;
+    border: 2px solid orange;
+    float: left;
 }
