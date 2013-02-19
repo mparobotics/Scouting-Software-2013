@@ -45,6 +45,21 @@ function sync() {
         console.log("Sync started!");
         View.pushView(5);
         if (push) {
+            var xmlhttp;
+            var output = "";
+            xmlhttp=new XMLHttpRequest();
+            xmlhttp.onreadystatechange=function()
+              {
+              if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                {
+                    console.log(xmlhttp.responseText);
+                    localStorage.setItem('teamData', '');
+                    Data.teamData = "";
+                }
+              }
+            xmlhttp.open("GET","/server.php?query=data&data="+Data.teamData,true);
+            xmlhttp.send();
+            Sync.resetTimer();
         }
     };
 }
@@ -123,16 +138,16 @@ function data() {
     this.saveData = function() {
         
         if (Data.teamData == null) {
-            Data.teamData = Data.currentTeamData.join(',');
+            Data.teamData = Data.currentTeamData.join('_');
         } else {
-            Data.teamData = Data.teamData+Data.currentTeamData.join(',');
+            Data.teamData = Data.teamData+"_"+Data.currentTeamData.join('_');
         }
         
         localStorage.setItem("teamData", Data.teamData);
     };
     
     this.reset = function() {
-        scoutForm.reset();
+        //scoutForm.reset();
         Data.checkDeviceId();
     }
 }
