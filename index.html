@@ -25,7 +25,7 @@
                 <hr />
                 <form>
                     <p>Device Number:</p>
-                    <input type="text" id="deviceNumber" pattern="[0-9]*" required />
+                    <input type="number" id="deviceNumber" required />
                     <br />
                     <input type="button" value="Next" onclick="Data.setDeviceId();" />
                 </form>
@@ -40,16 +40,20 @@
                         <option value="red">Red</option>
                         <option value="blue">Blue</option>
                     </select>
-                    <br />
+                    <hr />
+                    <p>Match Number:</p>
+                    <input type="number" id="matchNumber" placeholder="Match Number" />
+                    <hr />
                     <p>Teams:</p>
-                    <br />
-                    <input type="text" id="team1" pattern="[0-9]*" placeholder="Team 1" required /><input type="text" id="team2" pattern="[0-9]*" placeholder="Team 2" required /><input type="text" id="team3" pattern="[0-9]*" placeholder="Team 3" required />
+                    <input type="number" id="team1" placeholder="Team 1" required /><input type="number" id="team2" placeholder="Team 2" required /><input type="number" id="team3" placeholder="Team 3" required />
                     <input type="button" value="Next" onclick="Data.setTeams();" />
+                    <hr />
                 </form>
             </div>
             <div id="view3">
                 <!-- View 3 (Stats) -->
                 <h1>Stats</h1>
+                <h2 id="teamMatchLabel">Match Number: XXX</h2>
                 <hr />
                 <div class="teamStat" id="teamStat1">
                     <form>
@@ -93,8 +97,10 @@
                                 <option value="2">Average</option>
                                 <option value="1">Poor</option>
                             </select>
-                            <p>Comments:</p>
+                            <p>Penalties:</p>
                             <input id="scoreDetailObject15" type="text" />
+                            <p>Comments:</p>
+                            <input id="scoreDetailObject16" type="text" />
                         </div>
                     </form>
                 </div>
@@ -140,8 +146,10 @@
                                 <option value="2">Average</option>
                                 <option value="1">Poor</option>
                             </select>
+                            <p>Penalties:</p>
+                            <input id="scoreDetailObject25" type="text" />
                             <p>Comments:</p>
-                            <input id="scoreDetailObject25" type="text" required />
+                            <input id="scoreDetailObject26" type="text" />
                         </div>
                     </form>
                 </div>
@@ -187,8 +195,10 @@
                                 <option value="2">Average</option>
                                 <option value="1">Poor</option>
                             </select>
+                            <p>Penalties:</p>
+                            <input id="scoreDetailObject35" type="text" />
                             <p>Comments:</p>
-                            <input id="scoreDetailObject35" type="text" required />
+                            <input id="scoreDetailObject36" type="text" />
                         </div>
                     </form>
                 </div>
@@ -201,7 +211,7 @@
                 <h2>Match Score:</h2>
                 <input type="text" id="redScore" placeholder="Red Score" pattern="[0-9]*" required />|<input type="text" id="blueScore" placeholder="Blue Score" pattern="[0-9]*" required />
                 <br /><br />
-                <input type="button" value="Submit Match" />|<input type="button" value="Discard Match" />|<input type="button" value="Flag For Error and Submit" />
+                <input type="button" value="Submit Match" onclick="Data.createData();Data.saveData();" />|<input type="button" value="Discard Match" disabled />|<input type="button" value="Flag For Error and Submit" disabled />
             </div>
             <div id="view5">
                 <!-- View 5 (Sync) -->
