@@ -130,6 +130,11 @@ function data() {
         
         localStorage.setItem("teamData", Data.teamData);
     };
+    
+    this.reset = function() {
+        scoutForm.reset();
+        Data.checkDeviceId();
+    }
 }
 
 var Data = new data;

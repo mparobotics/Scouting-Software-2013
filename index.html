@@ -34,7 +34,7 @@
                 <!-- View 2 (Match) -->
                 <h1>Match</h1>
                 <hr />
-                <form>
+                <form id="scoutForm">
                     <p>Team:</p>
                     <select>
                         <option value="red">Red</option>
@@ -56,7 +56,7 @@
                 <h2 id="teamMatchLabel">Match Number: XXX</h2>
                 <hr />
                 <div class="teamStat" id="teamStat1">
-                    <form>
+                    <form id="scoutForm">
                         <p id="teamStat1Label">Team: XXXX</p>
                         <div class="scoreDetail">
                             <p>Thoughts</p>
@@ -105,7 +105,7 @@
                     </form>
                 </div>
                 <div class="teamStat" id="teamStat2">
-                    <form>
+                    <form id="scoutForm">
                         <p id="teamStat2Label">Team: XXXX</p>
                         <div class="scoreDetail">
                             <p>Thoughts</p>
@@ -154,7 +154,7 @@
                     </form>
                 </div>
                 <div class="teamStat" id="teamStat3">
-                    <form>
+                    <form id="scoutForm">
                         <p id="teamStat3Label">Team: XXXX</p>
                         <div class="scoreDetail">
                             <p>Thoughts</p>
@@ -209,16 +209,16 @@
                 <h1>Finalize?</h1>
                 <hr />
                 <h2>Match Score:</h2>
-                <input type="text" id="redScore" placeholder="Red Score" pattern="[0-9]*" required />|<input type="text" id="blueScore" placeholder="Blue Score" pattern="[0-9]*" required />
+                <form id="scoutForm "><input type="text" id="redScore" placeholder="Red Score" pattern="[0-9]*" required />|<input type="text" id="blueScore" placeholder="Blue Score" pattern="[0-9]*" required />
                 <br /><br />
-                <input type="button" value="Submit Match" onclick="Data.createData();Data.saveData();" />|<input type="button" value="Discard Match" disabled />|<input type="button" value="Flag For Error and Submit" disabled />
+                <input type="button" value="Submit Match" onclick="Data.createData();Data.saveData();Data.reset();" />|<input type="button" value="Discard Match" onclick="Data.reset();" />|<input type="button" value="Flag For Error and Submit" disabled /></form>
             </div>
             <div id="view5">
                 <!-- View 5 (Sync) -->
                 <h1>Sync Data</h1>
                 <h2>Sync Interface Detected!</h2>
                 <hr />
-                <input type="button" value="Sync?" />|<input type="button" value="Cancel" onclick="Data.checkDeviceId();" />
+                <input type="button" value="Sync?" />|<input type="button" value="Cancel" onclick="Data.reset();" />
             </div>
         </div>
     </body>
