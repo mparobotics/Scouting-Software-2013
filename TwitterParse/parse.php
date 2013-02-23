@@ -7,6 +7,16 @@
 
 <?php
 
+########################################
+###   A Few Notes to the User        ###
+### 1.  Input is not Validated	     ###
+### 2.  Input is not Sanitized       ### 
+### 3.  There is probably a better way #
+###     (Left as an exercise to reader)#
+###                                  ###
+### You have been warned.  Good Luck ###
+########################################
+
   $doc = new DOMDocument();
   $doc->load('https://api.twitter.com/1/statuses/user_timeline.rss?screen_name=frcfms');
   $arrFeeds = array();
