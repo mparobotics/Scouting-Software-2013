@@ -8,11 +8,11 @@ $sync = array(true,true);
 
 if ($query == "alive") {
     if ($device == 1) {
-        if (sync[0]) {
+        if ($sync[0]) {
             echo "alive";
         }
     } elseif ($device == 2) {
-        if (sync[1]) {
+        if ($sync[1]) {
             echo "alive";
         }
     }
