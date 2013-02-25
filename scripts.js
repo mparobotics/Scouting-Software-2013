@@ -53,8 +53,8 @@ function sync() {
               if (xmlhttp.readyState==4 && xmlhttp.status==200)
                 {
                     console.log(xmlhttp.responseText);
-                    //localStorage.setItem('teamData', '');
-                    //Data.teamData = "";
+                    localStorage.setItem('teamData', '');
+                    Data.teamData = "";
                 }
               }
             xmlhttp.open("GET","/server.php?query=data&data="+Data.teamData,true);
