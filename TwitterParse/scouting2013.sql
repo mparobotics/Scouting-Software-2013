@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 25, 2013 at 01:51 PM
+-- Generation Time: Feb 25, 2013 at 02:06 PM
 -- Server version: 5.6.10
 -- PHP Version: 5.4.9
 
@@ -67,18 +67,25 @@ INSERT INTO `matchdata` (`Event`, `MatchType`, `MatchNumber`, `RedFinal`, `BlueF
 --
 
 CREATE TABLE IF NOT EXISTS `teamdata` (
-  `MatchNumber` int(11) NOT NULL,
   `TeamNumber` int(11) NOT NULL,
+  `MatchNumber` int(11) NOT NULL,
   `Overall` int(11) NOT NULL,
   `Shooting` int(11) NOT NULL,
   `Lifting` int(11) NOT NULL,
   `Assisting` int(11) NOT NULL,
   `Penalties` text,
   `Comments` text,
-  `Id` int(11) NOT NULL,
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   UNIQUE KEY `Id` (`Id`,`Timestamp`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `teamdata`
+--
+
+INSERT INTO `teamdata` (`TeamNumber`, `MatchNumber`, `Overall`, `Shooting`, `Lifting`, `Assisting`, `Penalties`, `Comments`, `Id`, `Timestamp`) VALUES
+(1234, 2, 3, 2, 0, 2, 'Yellow Card', 'N/A', 1, '2013-02-25 20:03:11');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
