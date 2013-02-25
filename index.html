@@ -5,7 +5,7 @@
         <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
         <meta name="apple-mobile-web-app-capable" content="yes" />
 
-        <meta name="apple-mobile-web-app-status-bar-style" content="transparent" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="translucent" />
         <link rel="apple-touch-icon" href="logo.png"/>
 
         <link rel="apple-touch-startup-image" href="startup.png" />
@@ -56,7 +56,7 @@
                 <h2 id="teamMatchLabel">Match Number: XXX</h2>
                 <hr />
                 <div class="teamStat" id="teamStat1">
-                    <form id="scoutForm">
+                    <form id="scoutForm2">
                         <p id="teamStat1Label">Team: XXXX</p>
                         <div class="scoreDetail">
                             <p>Thoughts</p>
@@ -105,7 +105,7 @@
                     </form>
                 </div>
                 <div class="teamStat" id="teamStat2">
-                    <form id="scoutForm">
+                    <form id="scoutForm3">
                         <p id="teamStat2Label">Team: XXXX</p>
                         <div class="scoreDetail">
                             <p>Thoughts</p>
@@ -154,7 +154,7 @@
                     </form>
                 </div>
                 <div class="teamStat" id="teamStat3">
-                    <form id="scoutForm">
+                    <form id="scoutForm4">
                         <p id="teamStat3Label">Team: XXXX</p>
                         <div class="scoreDetail">
                             <p>Thoughts</p>
@@ -209,7 +209,7 @@
                 <h1>Finalize?</h1>
                 <hr />
                 <h2>Match Score:</h2>
-                <form id="scoutForm "><input type="text" id="redScore" placeholder="Red Score" pattern="[0-9]*" required />|<input type="text" id="blueScore" placeholder="Blue Score" pattern="[0-9]*" required />
+                <form id="scoutForm5"><input type="text" id="redScore" placeholder="Red Score" pattern="[0-9]*" required />|<input type="text" id="blueScore" placeholder="Blue Score" pattern="[0-9]*" required />
                 <br /><br />
                 <input type="button" value="Submit Match" onclick="Data.createData();Data.saveData();Data.reset();" />|<input type="button" value="Discard Match" onclick="Data.reset();" />|<input type="button" value="Flag For Error and Submit" disabled /></form>
             </div>

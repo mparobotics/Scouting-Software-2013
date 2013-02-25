@@ -32,7 +32,7 @@ function sync() {
                 }
             }
           }
-        xmlhttp.open("GET","/server.php?query=alive",true);
+        xmlhttp.open("GET","/server.php?query=alive&device="+Data.id,true);
         xmlhttp.send();
         Sync.resetTimer();
     };
@@ -147,7 +147,11 @@ function data() {
     };
     
     this.reset = function() {
-        //scoutForm.reset();
+        scoutForm.reset();
+        scoutForm2.reset();
+        scoutForm3.reset();
+        scoutForm4.reset();
+        scoutForm5.reset();
         Data.checkDeviceId();
     }
 }
