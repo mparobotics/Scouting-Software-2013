@@ -1,7 +1,7 @@
 <?php
 
 #Demo SQL Code
-#$sql = "INSERT INTO `scouting2013`.`teamdata` (`TeamNumber`, `MatchNumber`, `Overall`, `Shooting`, `Lifting`, `Assisting`, `Penalties`, `Comments`, `Id`, `Timestamp`) VALUES (\'1234\', \'2\', \'3\', \'2\', \'0\', \'2\', \'Yellow Card\', \'N/A\', NULL, NOW());";
+#$sql = "INSERT INTO `scouting2013`.`teamdata` (`TeamNumber`, `MatchNumber`, `Overall`, `Shooting`, `Lifting`, `Assisting`, `Penalties`, `Comments`, `Id`, `Timestamp`) VALUES ('1234', '2', '3', '2', '0', '2', 'Yellow Card', 'N/A', NULL, NOW());";
 
 
 $query = $_GET['query'];
@@ -57,8 +57,8 @@ class database
     		$dbh = new PDO('mysql:host='.database::$dbhost.';dbname='.database::$database, database::$dbuser, database::$dbpassword);
     	}
     	catch (PDOException $e) {
-			print ("Could not connect to server.\n");
-			die ("getMessage(): " . $e->getMessage () . "\n");
+			print ("Could not connect to server.n");
+			die ("getMessage(): " . $e->getMessage () . "n");
 		}
 		return $dbh;
 	}
@@ -118,8 +118,8 @@ class database
 		// Check result
 		// This shows the actual query sent to MySQL, and the error. Useful for debugging.
   		catch (PDOException $e) {
-			print ("Could not connect to server.\n");
-			die ("getMessage(): " . $e->getMessage () . "\n");
+			print ("Could not connect to server.n");
+			die ("getMessage(): " . $e->getMessage () . "n");
 		}
 
 		return("Query Successful");
@@ -148,6 +148,23 @@ if ($query == "alive") {
         $result[] = explode(',', $piece);
     }
     print_r($result);
+    
+    ##########################
+    #Parse Script Starts Here#
+    ##########################
+    
+    foreach ($result as $r) {
+        if ($i >= 0) {
+            $sql = "INSERT INTO `scouting2013`.`teamdata` (`TeamNumber`, `MatchNumber`, `Overall`, `Shooting`, `Lifting`, `Assisting`, `Penalties`, `Comments`, `Id`, `Timestamp`) VALUES ('".$r[0]."', '".$r[1]."', '".$r[2]."', '".$r[3]."', '".$r[4]."', '".$r[5]."', '".$r[6]."', '".$r[7]."', NULL, NOW());";
+            echo $sql."\n";
+        }
+        $i++;
+    }
+    
+    ########################
+    #Parse Script Ends Here#
+    ########################
+    
 } elseif ($query == "test") {
     database::test();
 }
