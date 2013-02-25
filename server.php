@@ -1,10 +1,14 @@
 <?php
 
+#Demo SQL Code
+#$sql = "INSERT INTO `scouting2013`.`teamdata` (`TeamNumber`, `MatchNumber`, `Overall`, `Shooting`, `Lifting`, `Assisting`, `Penalties`, `Comments`, `Id`, `Timestamp`) VALUES (\'1234\', \'2\', \'3\', \'2\', \'0\', \'2\', \'Yellow Card\', \'N/A\', NULL, NOW());";
+
+
 $query = $_GET['query'];
 $device = $_GET['device'];
 $data = $_GET['data'];
 
-$sync = array(true,true);
+$sync = array(true,false);
 
 if ($query == "alive") {
     if ($device == 1) {
