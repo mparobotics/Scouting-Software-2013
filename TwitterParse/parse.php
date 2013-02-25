@@ -24,8 +24,8 @@
     $itemRSS = array ( 
       
       'desc' => $node->getElementsByTagName('description')->item(0)->nodeValue,
-//      'link' => $node->getElementsByTagName('link')->item(0)->nodeValue,
-//     'date' => $node->getElementsByTagName('pubDate')->item(0)->nodeValue
+      //'link' => $node->getElementsByTagName('link')->item(0)->nodeValue,
+      //'date' => $node->getElementsByTagName('pubDate')->item(0)->nodeValue
       );
     array_push($arrFeeds, $itemRSS);
   }
@@ -37,15 +37,18 @@ echo('<table><tr><td>Event</td><td>Match Type</td><td>Match Number</td><td>Red A
 
 //print_r($arrFeeds);
 
-//for ( $counter = 1; $counter <= 20; $counter += 1) {
+/*
+for ( $counter = 1; $counter <= 20; $counter += 1) {
 echo('<br />');
-//print_r ($arrFeeds[$counter]);
-//}
+print_r ($arrFeeds[$counter]['desc']);
+}
+*/
 
 $itemDesc = array();
 
 for ( $i = 0; $i < 20; $i++) {
  foreach ($arrFeeds[$i] as $itemDesc) {
+  
   $itemContent = explode(" ",$itemDesc);
  
   $matchLocation = $itemContent[1];
@@ -72,9 +75,11 @@ for ( $i = 0; $i < 20; $i++) {
   $matchRTele = $itemContent[31];
   $matchBTele = $itemContent[33];
   
-echo('<tr><td>'.$matchLocation.'</td><td>'.$matchType.'</td><td>'.$matchNum.'</td><td>'.$matchRF.'</td><td>'.$matchBF.'</td><td>'.$matchROne.'</td><td>'.$matchRTwo.'</td><td>'.$matchRThr.'</td><td>'.$matchBOne.'</td><td>'.$matchBTwo.'</td><td>'.$matchBThr.'</td><td>'.$matchRC.'</td><td>'.$matchBC.'</td><td>'.$matchRPen.'</td><td>'.$matchBPen.'</td><td>'.$matchRAuto.'</td><td>'.$matchBAuto.'</td><td>'.$matchRTele.'</td><td>'.$matchBTele.'</td></tr>');
-}}
-  
+  echo('<tr><td>'.$matchLocation.'</td><td>'.$matchType.'</td><td>'.$matchNum.'</td><td>'.$matchRF.'</td><td>'.$matchBF.'</td><td>'.$matchROne.'</td><td>'.$matchRTwo.'</td><td>'.$matchRThr.'</td><td>'.$matchBOne.'</td><td>'.$matchBTwo.'</td><td>'.$matchBThr.'</td><td>'.$matchRC.'</td><td>'.$matchBC.'</td><td>'.$matchRPen.'</td><td>'.$matchBPen.'</td><td>'.$matchRAuto.'</td><td>'.$matchBAuto.'</td><td>'.$matchRTele.'</td><td>'.$matchBTele.'</td></tr>');
+
+  }
+}
+
 ?>
 
 </body>
