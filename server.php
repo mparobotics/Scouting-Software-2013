@@ -157,6 +157,7 @@ if ($query == "alive") {
         if ($i >= 0) {
             $sql = "INSERT INTO `scouting2013`.`teamdata` (`TeamNumber`, `MatchNumber`, `Overall`, `Shooting`, `Lifting`, `Assisting`, `Penalties`, `Comments`, `Id`, `Timestamp`) VALUES ('".$r[0]."', '".$r[1]."', '".$r[2]."', '".$r[3]."', '".$r[4]."', '".$r[5]."', '".$r[6]."', '".$r[7]."', NULL, NOW());";
             echo $sql."\n";
+            database::writedata($sql);
         }
         $i++;
     }
