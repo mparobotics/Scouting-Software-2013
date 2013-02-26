@@ -42,12 +42,12 @@ input {
 
 #leftFragment {
     background: gray;
-    width: 15%;
+    width: 20%;
 }
 
 #rightFragment {
     background: #ddd;
-    width: 85%;
+    width: 80%;
 }
 
 .teamStat {
@@ -77,12 +77,16 @@ input {
     background: black;
     padding: 5px;
     text-align: left;
+    z-index: 500;
+    position: relative;
 }
 
 .actionBar p {
     float: left;
     color: white;
-    margin-left: 12px;
+    font-weight: bold;
+    font-size: 30px;
+    margin: 9px;
 }
 
 .actionBar img {
