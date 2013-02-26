@@ -61,3 +61,22 @@ input {
     /*display: none;*/
     margin: auto;
 }
+
+.actionBar {
+    height: 50px;
+    background: black;
+    margin: -8px;
+    padding: 5px;
+    text-align: left;
+}
+
+.actionBar p {
+    float: left;
+    color: white;
+    margin-left: 12px;
+}
+
+.actionBar img {
+    height: 50px;
+    float: left;
+}
