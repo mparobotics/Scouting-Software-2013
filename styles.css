@@ -40,6 +40,16 @@ input {
     display: none;
 }
 
+#leftFragment {
+    background: gray;
+    width: 15%;
+}
+
+#rightFragment {
+    background: #ddd;
+    width: 85%;
+}
+
 .teamStat {
     background: white;
     color: black;
@@ -65,7 +75,6 @@ input {
 .actionBar {
     height: 50px;
     background: black;
-    margin: -8px;
     padding: 5px;
     text-align: left;
 }
@@ -79,4 +88,20 @@ input {
 .actionBar img {
     height: 50px;
     float: left;
+}
+
+.fragment {
+    float: left;
+    margin-top: -18px;
+    height: 100%;
+}
+
+.fragmentObject {
+    height: 30px;
+    background: white;
+    border-bottom: 5px solid blue;
+    margin-left: -5px;
+    padding-top: 15px;
+    margin-right: -5px;
+    margin-top: -16px;
 }
