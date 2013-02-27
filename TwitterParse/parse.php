@@ -20,7 +20,7 @@
 #Dummy Query
 #$sql = "INSERT INTO `scouting2013`.`matchdata` (`Event`, `MatchType`, `MatchNumber`, `RedFinal`, `BlueFinal`, `Red1`, `Red2`, `Red3`, `Blue1`, `Blue2`, `Blue3`, `RedClimb`, `BlueClimb`, `RedFoul`, `BlueFoul`, `RedAuto`, `BlueAuto`, `RedTeleop`, `BlueTeleop`, `Id`, `Timestamp`) VALUES (\'#FRCDEV1\', \'P\', \'5\', \'189\', \'43\', \'12\', \'1\', \'6\', \'11\', \'9\', \'7\', \'40\', \'30\', \'0\', \'0\', \'72\', \'6\', \'77\', \'7\', NULL, NOW());";
 
-include('/classes.php');
+include('../classes.php');
 
 
   $doc = new DOMDocument();
