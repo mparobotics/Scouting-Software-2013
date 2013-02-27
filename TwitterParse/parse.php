@@ -98,10 +98,11 @@ class database
 		// Perform Query
 		$result = $dbh->query ($query);
 
-
-		while ($row = $result->fetch()) {
-		    return($row);
-		}
+        if ($result) {
+            while ($row = $result->fetch()) {
+		      return($row);
+            }
+        }
 
 		$dbh = NULL;
     }
@@ -110,8 +111,10 @@ class database
     	$dbh = database::sqlconn();
 
 		$result = $dbh->query ($query);
-
-		return $result;
+        
+        if ($result) {
+            return $result->fetch();
+        }
 
 		$dbh = NULL;
     }
@@ -172,6 +175,8 @@ print_r ($arrFeeds[$counter]['desc']);
 
 $itemDesc = array();
 
+$a = 0;
+
 for ( $i = 0; $i < 20; $i++) {
  foreach ($arrFeeds[$i] as $itemDesc) {
   
@@ -201,13 +206,23 @@ for ( $i = 0; $i < 20; $i++) {
   $matchRTele = $itemContent[31];
   $matchBTele = $itemContent[33];
      
+     $isthereSQL = "SELECT *  FROM `matchdata` WHERE `Event` = '".$matchLocation."' AND `MatchType` = '".$matchType."' AND `MatchNumber` = ".$matchNum; 
+
+     
      $sql = "INSERT INTO `scouting2013`.`matchdata` (`Event`, `MatchType`, `MatchNumber`, `RedFinal`, `BlueFinal`, `Red1`, `Red2`, `Red3`, `Blue1`, `Blue2`, `Blue3`, `RedClimb`, `BlueClimb`, `RedFoul`, `BlueFoul`, `RedAuto`, `BlueAuto`, `RedTeleop`, `BlueTeleop`, `Id`, `Timestamp`) VALUES ('".$matchLocation."', '".$matchType."', '".$matchNum."', '".$matchRF."', '".$matchBF."', '".$matchROne."', '".$matchRTwo."', '".$matchRThr."', '".$matchBOne."', '".$matchBTwo."', '".$matchBThr."', '".$matchRC."', '".$matchBC."', '".$matchRPen."', '".$matchBPen."', '".$matchRAuto."', '".$matchBAuto."', '".$matchRTele."', '".$matchBTele."', NULL, NOW());";
-     echo $sql;
      echo('<tr><td>'.$matchLocation.'</td><td>'.$matchType.'</td><td>'.$matchNum.'</td><td>'.$matchRF.'</td><td>'.$matchBF.'</td><td>'.$matchROne.'</td><td>'.$matchRTwo.'</td><td>'.$matchRThr.'</td><td>'.$matchBOne.'</td><td>'.$matchBTwo.'</td><td>'.$matchBThr.'</td><td>'.$matchRC.'</td><td>'.$matchBC.'</td><td>'.$matchRPen.'</td><td>'.$matchBPen.'</td><td>'.$matchRAuto.'</td><td>'.$matchBAuto.'</td><td>'.$matchRTele.'</td><td>'.$matchBTele.'</td></tr>');
+     if (database::returnmultiplerows($isthereSQL)) {
+         $a++;
+     } else {
+         database::writedata($sql);
+     }
+     flush();
      
 
   }
 }
+echo $i." rows were processed"."<br />";
+echo $a." rows were omitted";
 
 ?>
 
