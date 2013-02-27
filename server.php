@@ -11,7 +11,7 @@ $data = $_GET['data'];
 $sync = array(false,false);
 
 
-include('/classes.php');
+include('classes.php');
 
 
 if ($query == "alive") {
