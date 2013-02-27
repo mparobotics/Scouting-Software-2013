@@ -120,4 +120,11 @@ class database
 		$dbh = NULL;
     }
 }
+
+
+class analytics
+{
+    public static function count($array) {
+    }
+}
 ?>
