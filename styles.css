@@ -109,3 +109,14 @@ input {
     margin-right: -5px;
     margin-top: -16px;
 }
+
+.fragmentObject:hover {
+    background: #5AF;
+}
+
+.fragmentPane {
+    padding: 5px;
+    border-left: 5px solid blue;
+    height: 100%;
+    margin-top: -10px;
+}
