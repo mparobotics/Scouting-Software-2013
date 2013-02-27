@@ -5,11 +5,11 @@ Correct Class Definition:
 
 
 function Apple (type) {
-    this.type = type;
-    this.color = "red";
-    this.getInfo = function() {
-        return this.color + ' ' + this.type + ' apple';
-    };
+this.type = type;
+this.color = "red";
+this.getInfo = function() {
+return this.color + ' ' + this.type + ' apple';
+};
 }
 
 */
@@ -185,35 +185,83 @@ function view() {
                 Core.hideId('view2');
                 Core.hideId('view3');
                 Core.hideId('view4');
-                Core.hideId('view5');           
+                Core.hideId('view5');
                 break;
                 case 2:
                 Core.hideId('view1');
                 Core.showId('view2');
                 Core.hideId('view3');
                 Core.hideId('view4');
-                Core.hideId('view5');           
+                Core.hideId('view5');
                 break;
                 case 3:
                 Core.hideId('view1');
                 Core.hideId('view2');
                 Core.showId('view3');
                 Core.hideId('view4');
-                Core.hideId('view5');           
+                Core.hideId('view5');
                 break;
                 case 4:
                 Core.hideId('view1');
                 Core.hideId('view2');
                 Core.hideId('view3');
                 Core.showId('view4');
-                Core.hideId('view5');           
+                Core.hideId('view5');
                 break;
                 case 5:
                 Core.hideId('view1');
                 Core.hideId('view2');
                 Core.hideId('view3');
                 Core.hideId('view4');
-                Core.showId('view5');           
+                Core.showId('view5');
+                break;
+                case 6:
+                Core.showId('eventDetails');
+                Core.hideId('teamScout');
+                Core.hideId('matchScout');
+                Core.hideId('stat');
+                Core.hideId('trends');
+                Core.hideId('leaderboards');
+                break;
+                case 7:
+                Core.hideId('eventDetails');
+                Core.showId('teamScout');
+                Core.hideId('matchScout');
+                Core.hideId('stat');
+                Core.hideId('trends');
+                Core.hideId('leaderboards');
+                break;
+                case 8:
+                Core.hideId('eventDetails');
+                Core.hideId('teamScout');
+                Core.showId('matchScout');
+                Core.hideId('stat');
+                Core.hideId('trends');
+                Core.hideId('leaderboards');
+                break;
+                case 9:
+                Core.hideId('eventDetails');
+                Core.hideId('teamScout');
+                Core.hideId('matchScout');
+                Core.showId('stat');
+                Core.hideId('trends');
+                Core.hideId('leaderboards');
+                break;
+                case 10:
+                Core.hideId('eventDetails');
+                Core.hideId('teamScout');
+                Core.hideId('matchScout');
+                Core.hideId('stat');
+                Core.showId('trends');
+                Core.hideId('leaderboards');
+                break;
+                case 11:
+                Core.hideId('eventDetails');
+                Core.hideId('teamScout');
+                Core.hideId('matchScout');
+                Core.hideId('stat');
+                Core.hideId('trends');
+                Core.showId('leaderboards');
                 break;
         }
     };

@@ -75,3 +75,52 @@ input {
     margin: auto;
     margin-top: 10px;
 }
+
+.actionBar {
+    height: 50px;
+    background: black;
+    padding: 5px;
+    text-align: left;
+    z-index: 500;
+    position: relative;
+}
+
+.actionBar p {
+    float: left;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    margin: 9px;
+}
+
+.actionBar img {
+    height: 50px;
+    float: left;
+}
+
+.fragment {
+    float: left;
+    margin-top: -18px;
+    height: 100%;
+}
+
+.fragmentObject {
+    height: 30px;
+    background: white;
+    border-bottom: 5px solid blue;
+    margin-left: -5px;
+    padding-top: 15px;
+    margin-right: -5px;
+    margin-top: -16px;
+}
+
+.fragmentObject:hover {
+    background: #5AF;
+}
+
+.fragmentPane {
+    padding: 5px;
+    border-left: 5px solid blue;
+    height: 100%;
+    margin-top: -10px;
+}
