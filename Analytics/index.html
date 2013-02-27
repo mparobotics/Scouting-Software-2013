@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+
+        <meta name="apple-mobile-web-app-status-bar-style" content="translucent" />
+        <link rel="apple-touch-icon" href="/logo.png"/>
+
+        <link rel="apple-touch-startup-image" href="startup.png" />
+        <link rel="stylesheet" href="/styles.css" type="text/css" media="screen, mobile" title="main" charset="utf-8" />
+        
+        <script type="text/javascript" src="/scripts.js"></script>
+        
+        <title>Scout Central</title>
+    </head>
+    <body style="margin: 0px;">
+        <div class="actionBar"><img src="/logo.png" alt="Logo" /><p>Scout Central</p></div>
+        <br />
+        <div id="leftFragment" class="fragment">
+            <div style="padding: 5px; text-align: center; padding-top: 10px;">
+                <input type="text" placeholder="Search" class="search" style="height: 30px;width: 100%;margin-bottom: 25px;" />
+                <p class="fragmentObject" onclick="View.pushView(6);">Event Details</p>
+                <p class="fragmentObject" onclick="View.pushView(7);">Scout a Team</p>
+                <p class="fragmentObject" onclick="View.pushView(8);">Scout a Match</p>
+                <p class="fragmentObject" onclick="View.pushView(9);">Get Stat</p>
+                <p class="fragmentObject" onclick="View.pushView(10);">Trends</p>
+                <p class="fragmentObject" onclick="View.pushView(11);">Leaderboards</p>
+            </div>
+        </div>
+        <div id="rightFragment" class="fragment">
+            <div class="fragmentPane" id="eventDetails">
+                <h1>Event Details</h1>
+                <p>Access general event statistics</p>
+                <div id="detailView">Content</div>
+            </div>
+            <div class="fragmentPane" id="teamScout">
+                <h1>Scout a Team</h1>
+                <p>Get info on a specific team</p>
+                <div id="detailView">Content</div>
+            </div>
+            <div class="fragmentPane" id="matchScout">
+                <h1>Scout a Match</h1>
+                <p>Review a Particular Match</p>
+                <div id="detailView">Content</div>
+            </div>
+            <div class="fragmentPane" id="stat">
+                <h1>Get a Stat</h1>
+                <p>Review a Specific Stat</p>
+                <div id="detailView">Content</div>
+            </div><div class="fragmentPane" id="trends">
+                <h1>Trends</h1>
+                <p>Review Common Trends</p>
+                <div id="detailView">Content</div>
+            </div>
+            <div class="fragmentPane" id="leaderboards">
+                <h1>Leaderboards</h1>
+                <p>Where you can really find whose on top ;)</p>
+                <div id="detailView">Content</div>
+            </div>
+        </div>
+    </body>
+</html>
