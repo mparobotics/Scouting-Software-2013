@@ -19,30 +19,48 @@
     
     <body onload="Core.load();">
         <div id="content">
+<!--
+IIIIIII  DDDD   
+   I     D  DDD 
+   I     D    DD
+   I     D     D
+   I     D     D
+   I     D     D
+   I     D    DD
+   I     D  DDD 
+IIIIIII  DDDD
+-->       
             <div id="view1">
-                <!-- View 1 (Intro) -->
                 <h1>MPAror</h1>
                 <h2>Robotics</h2>
                 <h3>Scout Central</h3>
                 <hr />
                 
-                <form>
+                <form onsubmit="return(fales);">
                     <p>Device Number:</p>
                     <input type="number" id="deviceNumber" min="1" max="5" required />
-                    <br />
-                    <input type="button" value="Next" onclick="Data.setDeviceId();" />
+                    <br /><br />
+                    <input type="submit" value="Next" onclick="Data.setDeviceId();" />
+                	<br /><br />
                 </form>
                 
             </div>
-            
-            
-            
+<!--            
+M     M     A     TTTTTTT    CCC    H     H
+MM   MM    A A       T      CC CC   H     H
+M M M M   A   A      T     CC    C  H     H
+M  M  M  A     A     T     C        H     H
+M     M  AAAAAAA     T     C        HHHHHHH
+M     M  A     A     T     C        H     H
+M     M  A     A     T     CC    C  H     H
+M     M  A     A     T      CC CC   H     H
+M     M  A     A     T       CCC    H     H
+-->
             <div id="view2">
-                <!-- View 2 (Match) -->
                 <h1>Match</h1>
                 <hr />
                 
-                <form id="scoutForm">
+                <form id="scoutForm" onsubmit="return(false);">
                     <p>Alliance:</p>
                     
                     <select id="alliance">
@@ -59,16 +77,23 @@
                     <input type="number" id="team1" placeholder="Team 1" required min="1" max="5000" required />
                     <input type="number" id="team2" placeholder="Team 2" required min="1" max="5000" required />
                     <input type="number" id="team3" placeholder="Team 3" required min="1" max="5000" required />
-                    <input type="button" value="Next" onclick="Data.setTeams();" />
-                    <hr />
-                    
+                    <br /><br />
+                    <input type="submit" value="Next" onclick="Data.setTeams();" />
+                    <br /><br />
                 </form>
             </div>
-            
-            
-            
+<!--
+  SSS    TTTTTTT     A     TTTTTTT    SSS  
+SS   SS     T       A A       T     SS   SS
+S           T      A   A      T     S      
+SS          T     A     A     T     SS     
+  SSS       T     AAAAAAA     T       SSS  
+     SS     T     A     A     T          SS
+      S     T     A     A     T           S
+SS   SS     T     A     A     T     SS   SS
+  SSS       T     A     A     T       SSS  
+-->
             <div id="view3">
-                <!-- View 3 (Stats) -->
                 <h1>Stats</h1>
                 <h2 id="teamMatchLabel">Match Number: XXX</h2>
                 <hr />
@@ -78,8 +103,8 @@
                         <p id="teamStat1Label">Team: XXXX</p>
                         
                         <div class="scoreDetail">
-                            <p>Thoughts</p>
-                            
+                            Thoughts
+                           <br />
                             <select id="scoreDetailObject11" class="scoreDetailObject" style="display: block;">
                                 <option value="0">Please Select</option>
                                 <option value="4">Outstanding</option>
@@ -134,7 +159,8 @@
                         <p id="teamStat2Label">Team: XXXX</p>
                         
                         <div class="scoreDetail">
-                            <p>Thoughts</p>
+                            Thoughts
+                            <br />
                             <select id="scoreDetailObject21" class="scoreDetailObject" style="display: block;">
                                 <option value="0">Please Select</option>
                                 <option value="4">Outstanding</option>
@@ -189,7 +215,8 @@
                         <p id="teamStat3Label">Team: XXXX</p>
                         
                         <div class="scoreDetail">
-                            <p>Thoughts</p>
+                            Thoughts
+                            <br />
                             <select id="scoreDetailObject31" class="scoreDetailObject" style="display: block;">
                                 <option value="0">Please Select</option>
                                 <option value="4">Outstanding</option>
@@ -242,21 +269,37 @@
                 
                 <input type="button" value="Next" onclick="View.pushView(4)" />
             </div>
-                
-
+<!--
+FFFFFFF  IIIIIII  N     N     A     L        IIIIIII  ZZZZZZZ  EEEEEEE
+F           I     NN    N    A A    L           I           Z  E      
+F           I     N N   N   A   A   L           I          Z   E      
+F           I     N N   N  A     A  L           I         Z    E      
+FFFF        I     N  N  N  AAAAAAA  L           I        Z     EEEE   
+F           I     N   N N  A     A  L           I       Z      E      
+F           I     N   N N  A     A  L           I      Z       E      
+F           I     N    NN  A     A  L           I     Z        E      
+F        IIIIIII  N     N  A     A  LLLLLLL  IIIIIII  ZZZZZZZ  EEEEEEE
+-->
             <div id="view4">
-                <!-- View 4 (Finalize) -->
                 <h1>Finalize?</h1>
                 <hr />
                 <h2>Match Score:</h2>
-                <form id="scoutForm5"><input type="number" id="redScore" placeholder="Red Score" min="0" max="1000" required />|<input type="number" id="blueScore" placeholder="Blue Score" min="0" max="1000" required />
+                <form id="scoutForm5"><input type="number" id="redScore" placeholder="Red Score" min="0" max="1000" required />&nbsp;&nbsp;|&nbsp;&nbsp;<input type="number" id="blueScore" placeholder="Blue Score" min="0" max="1000" required />
                 <br /><br />
                 <input type="button" value="Submit Match" onclick="Data.createData();Data.saveData();Data.reset();" />|<input type="button" value="Discard Match" onclick="Data.reset();" />|<input type="button" value="Flag For Error and Submit" disabled /></form>
             </div>
-            
-            
+<!--
+  SSS    Y     Y  N     N    CCC  
+SS   SS   Y   Y   NN    N   CC CC 
+S          Y Y    N N   N  CC    C
+SS          Y     N N   N  C      
+  SSS       Y     N  N  N  C      
+     SS     Y     N   N N  C      
+      S     Y     N   N N  CC    C
+SS   SS     Y     N    NN   CC CC 
+  SSS       Y     N     N    CCC  
+-->        
             <div id="view5">
-                <!-- View 5 (Sync) -->
                 <h1>Sync Data</h1>
                 <h2>Sync Interface Detected!</h2>
                 <hr />
