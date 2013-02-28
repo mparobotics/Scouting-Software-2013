@@ -125,6 +125,11 @@ class database
 class analytics
 {
     public static function count($array) {
+    	
+    }
+    
+    public static function getTeam($number) {
+    
     }
 }
 ?>
