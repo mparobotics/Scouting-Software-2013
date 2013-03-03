@@ -32,7 +32,7 @@ function sync() {
                 }
             }
           }
-        xmlhttp.open("GET","/server.php?query=alive&device="+Data.id,true);
+        xmlhttp.open("GET","/server.php?query=alive&data=0&device="+Data.id,true);
         xmlhttp.send();
         Sync.resetTimer();
     };
@@ -76,9 +76,10 @@ function data() {
     this.team2 = "";
     this.team3 = "";
     this.matchNumber = 0;
+    this.matchType = "X";
     this.teamData = localStorage.getItem('teamData');
-    //Team Number, Match Number, Thoughts, Shooting, Lifting, Assisting, Penalties, Comments
-    this.currentTeamData = new Array([0,0,0,0,0,0,"N/A","N/A"], [0,0,0,0,0,0,"N/A","N/A"], [0,0,0,0,0,0,"N/A","N/A"]);
+    //Team Number, Match Number, Match Type, Thoughts, Shooting, Lifting, Assisting, Penalties, Comments
+    this.currentTeamData = new Array([0,0,"X",0,0,0,0,"N/A","N/A"], [0,0,"X",0,0,0,0,"N/A","N/A"], [0,0,"X",0,0,0,0,"N/A","N/A"]);
     
     this.checkDeviceId = function() {
         if (Data.id > 0) {
@@ -100,6 +101,7 @@ function data() {
         Data.team2 = document.getElementById('team2').value;
         Data.team3 = document.getElementById('team3').value;
         Data.matchNumber = document.getElementById('matchNumber').value;
+        Data.matchType = document.getElementById('type').value;
         document.getElementById('teamStat1Label').innerHTML = "Team: "+Data.team1;
         document.getElementById('teamStat2Label').innerHTML = "Team: "+Data.team2;
         document.getElementById('teamStat3Label').innerHTML = "Team: "+Data.team3;
@@ -115,24 +117,27 @@ function data() {
         Data.currentTeamData[0][1] = Data.matchNumber;
         Data.currentTeamData[1][1] = Data.matchNumber;
         Data.currentTeamData[2][1] = Data.matchNumber;
-        Data.currentTeamData[0][2] = document.getElementById('scoreDetailObject11').value;
-        Data.currentTeamData[1][2] = document.getElementById('scoreDetailObject21').value;
-        Data.currentTeamData[2][2] = document.getElementById('scoreDetailObject31').value;
-        Data.currentTeamData[0][3] = document.getElementById('scoreDetailObject12').value;
-        Data.currentTeamData[1][3] = document.getElementById('scoreDetailObject22').value;
-        Data.currentTeamData[2][3] = document.getElementById('scoreDetailObject32').value;
-        Data.currentTeamData[0][4] = document.getElementById('scoreDetailObject13').value;
-        Data.currentTeamData[1][4] = document.getElementById('scoreDetailObject23').value;
-        Data.currentTeamData[2][4] = document.getElementById('scoreDetailObject33').value;
-        Data.currentTeamData[0][5] = document.getElementById('scoreDetailObject14').value;
-        Data.currentTeamData[1][5] = document.getElementById('scoreDetailObject24').value;
-        Data.currentTeamData[2][5] = document.getElementById('scoreDetailObject34').value;
-        Data.currentTeamData[0][6] = document.getElementById('scoreDetailObject15').value;
-        Data.currentTeamData[1][6] = document.getElementById('scoreDetailObject25').value;
-        Data.currentTeamData[2][6] = document.getElementById('scoreDetailObject35').value;
-        Data.currentTeamData[0][7] = document.getElementById('scoreDetailObject16').value;
-        Data.currentTeamData[1][7] = document.getElementById('scoreDetailObject26').value;
-        Data.currentTeamData[2][7] = document.getElementById('scoreDetailObject36').value;
+        Data.currentTeamData[0][2] = Data.matchType;
+        Data.currentTeamData[1][2] = Data.matchType;
+        Data.currentTeamData[2][2] = Data.matchType;
+        Data.currentTeamData[0][3] = document.getElementById('scoreDetailObject11').value;
+        Data.currentTeamData[1][3] = document.getElementById('scoreDetailObject21').value;
+        Data.currentTeamData[2][3] = document.getElementById('scoreDetailObject31').value;
+        Data.currentTeamData[0][4] = document.getElementById('scoreDetailObject12').value;
+        Data.currentTeamData[1][4] = document.getElementById('scoreDetailObject22').value;
+        Data.currentTeamData[2][4] = document.getElementById('scoreDetailObject32').value;
+        Data.currentTeamData[0][5] = document.getElementById('scoreDetailObject13').value;
+        Data.currentTeamData[1][5] = document.getElementById('scoreDetailObject23').value;
+        Data.currentTeamData[2][5] = document.getElementById('scoreDetailObject33').value;
+        Data.currentTeamData[0][6] = document.getElementById('scoreDetailObject14').value;
+        Data.currentTeamData[1][6] = document.getElementById('scoreDetailObject24').value;
+        Data.currentTeamData[2][6] = document.getElementById('scoreDetailObject34').value;
+        Data.currentTeamData[0][7] = document.getElementById('scoreDetailObject15').value;
+        Data.currentTeamData[1][7] = document.getElementById('scoreDetailObject25').value;
+        Data.currentTeamData[2][7] = document.getElementById('scoreDetailObject35').value;
+        Data.currentTeamData[0][8] = document.getElementById('scoreDetailObject16').value;
+        Data.currentTeamData[1][8] = document.getElementById('scoreDetailObject26').value;
+        Data.currentTeamData[2][8] = document.getElementById('scoreDetailObject36').value;
     };
         
     this.saveData = function() {
