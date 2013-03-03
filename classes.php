@@ -94,7 +94,19 @@ class database
 		$result = $dbh->query ($query);
         
         if ($result) {
-            return $result->fetch();
+            return $result->fetchAll();
+        }
+
+		$dbh = NULL;
+    }
+    
+    public static function countRows($query) {
+    	$dbh = database::sqlconn();
+
+		$result = $dbh->query ($query);
+        
+        if ($result) {
+            return count($result->fetchAll());
         }
 
 		$dbh = NULL;
@@ -133,7 +145,15 @@ class analytics
     }
     
     public static function getTeam($number) {
-    
+        $won = 5;
+        $lost = 2;
+        $pct = round((($won/($lost+$won))*100));
+        $matches = analytics::getTeamMatches($number);
+        $teamdata = analytics::getTeamData($number);
+        $flags = "None";
+        $data = Array($won, $lost, $pct, $matches, $teamdata, $flags);
+        //print_r($data);
+        return $data;
     }
     
     public static function getMatch($event, $type, $number) {
@@ -148,14 +168,26 @@ class analytics
     }
     
     public static function getTeamData($number) {
+        #SELECT * FROM `teamdata` WHERE `TeamNumber` = 1234
+        $sql = "SELECT * FROM `teamdata` WHERE `TeamNumber` = ".$number;
+        //echo $sql;
+        $response = database::returnmultiplerows($sql);
+        return $response;
+    }
     
-    } 
+    public static function getTeamMatches($number) {
+        #SELECT * FROM `matchdata` WHERE `Red1` = 701 OR `Red2` = 701 OR `Red3` = 701 OR `Blue1` = 701 OR `Blue2` = 701 OR `Blue3` = 701
+        $sql = "SELECT * FROM `matchdata` WHERE `Red1` = ".$number." OR `Red2` = ".$number." OR `Red3` = ".$number." OR `Blue1` = ".$number." OR `Blue2` = ".$number." OR `Blue3` = ".$number;
+        //echo $sql;
+        $response = database::returnmultiplerows($sql);
+        return $response;
+    }
     
     public static function display($view, $detail) {
         if ($view == "event") {
             echo "Event";
         } elseif ($view == "team") {
-            echo "Team";
+            print_r(analytics::getTeam($detail));
         } elseif ($view == "match") {
             $data = explode("_",$detail);
             $response = analytics::getMatch($data[0], $data[1], $data[2]);
