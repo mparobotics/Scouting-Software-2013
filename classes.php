@@ -145,13 +145,42 @@ class analytics
     }
     
     public static function getTeam($number) {
-        $won = 5;
-        $lost = 2;
-        $pct = round((($won/($lost+$won))*100));
         $matches = analytics::getTeamMatches($number);
         $teamdata = analytics::getTeamData($number);
         $flags = "None";
-        $data = Array($won, $lost, $pct, $matches, $teamdata, $flags);
+        $won = 0;
+        $lost = 0;
+        $tied = 0;
+        foreach ($matches as $row) {
+            if ($row[3] == $row[4]) {
+                #Tie
+                $tied++;
+            } elseif ($row[3] > $row[4]) {
+                #Red win
+                if ($row[5] == $number) {
+                    $won++;
+                } elseif ($row[6] == $number) {
+                    $won++;
+                } elseif ($row[7] == $number) {
+                    $won++;
+                } else {
+                    $lost++;
+                }
+            } elseif ($row[3] < $row[4]) {
+                #Blue win
+                if ($row[5] == $number) {
+                    $lost++;
+                } elseif ($row[6] == $number) {
+                    $lost++;
+                } elseif ($row[7] == $number) {
+                    $lost++;
+                } else {
+                    $won++;
+                }
+            }
+        }
+        $pct = round((($won/($lost+$won+$tied))*100));
+        $data = Array($won, $lost, $tied, $pct, $matches, $teamdata, $flags);
         //print_r($data);
         return $data;
     }
@@ -188,15 +217,15 @@ class analytics
             echo "Event";
         } elseif ($view == "team") {
             $data = analytics::getTeam($detail);
-            echo '<table border="1"><th>Matches Won</th><th>Matches Lost</th><th>Win Pct.</th><tr><td>'.$data[0].'</td><td>'.$data[1].'</td><td>'.$data[2].'</td></tr></table>';
+            echo '<table border="1"><th>Matches Won</th><th>Matches Lost</th><th>Matches Tied</th><th>Win Pct.</th><tr><td>'.$data[0].'</td><td>'.$data[1].'</td><td>'.$data[2].'</td><td>'.$data[3].'</td></tr></table><br />';
             echo '<table border="1"><th>Event</th><th>Type</th><th>Number</th><th>Red Score</th><th>Blue Score</th><th>Red Alliance</th><th>Blue Alliance</th><th>Red Climb</th><th>Blue Climb</th><th>Red Auto</th><th>Blue Auto</th><th>Red Teleop</th><th>Blue Teleop</th><th>Red Fouls</th><th>Blue Fouls</th>';
-            foreach ($data[3] as $response) {
+            foreach ($data[4] as $response) {
                 echo '<tr><td>'.$response[0].'</td><td>'.$response[1].'</td><td>'.$response[2].'</td><td>'.$response[3].'</td><td>'.$response[4].'</td><td>'.$response[5].', '.$response[6].', '.$response[7].'</td><td>'.$response[8].', '.$response[9].', '.$response[10].'</td><td>'.$response[11].'</td><td>'.$response[12].'</td><td>'.$response[15].'</td><td>'.$response[16].'</td><td>'.$response[17].'</td><td>'.$response[18].'</td><td>'.$response[13].'</td><td>'.$response[14].'</td></tr>';
             }
-            echo '</table>';
+            echo '</table><br />';
                 
             echo '<table border="1"><th>Team Number</th><th>Match Number</th><th>Match Type</th><th>Overall</th><th>Schooting</th><th>Lifting</th><th>Assisting</th><th>Penalties</th><th>Comments</th>';
-            foreach ($data[4] as $response) {
+            foreach ($data[5] as $response) {
                 echo '<tr><td>'.$response[0].'</td><td>'.$response[1].'</td><td>'.$response[2].'</td><td>'.$response[3].'</td><td>'.$response[4].'</td><td>'.$response[5].'</td><td>'.$response[6].'</td><td>'.$response[7].'</td><td>'.$response[8].'</td></tr>';
             }
             echo '</table>';
