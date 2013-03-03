@@ -124,12 +124,51 @@ class database
 
 class analytics
 {
-    public static function count($array) {
+    public static function countArray($array) {
+    	
+    }
+    
+    public static function averageArray($array) {
     	
     }
     
     public static function getTeam($number) {
     
+    }
+    
+    public static function getMatch($event, $type, $number) {
+        #SELECT * FROM `matchdata` WHERE `Event` = "#FRCCAMA" AND `MatchType` = "Q" AND `MatchNumber` = 6
+        $sql = "SELECT * FROM `matchdata` WHERE `Event` = '#".$event."' AND `MatchType` = '".$type."' AND `MatchNumber` = ".$number;
+        $response = database::returnmultiplerows($sql);
+        return $response;
+    }
+    
+    public static function getStat($db,$cond) {
+    
+    }
+    
+    public static function getTeamData($number) {
+    
+    } 
+    
+    public static function display($view, $detail) {
+        if ($view == "event") {
+            echo "Event";
+        } elseif ($view == "team") {
+            echo "Team";
+        } elseif ($view == "match") {
+            $data = explode("_",$detail);
+            $response = analytics::getMatch($data[0], $data[1], $data[2]);
+            print_r($response);
+        } elseif ($view == "stat") {
+            echo "Stat";
+        } elseif ($view == "trends") {
+            echo "Trends";
+        } elseif ($view == "leaderboards") {
+            echo "Leaderboards";
+        } else {
+            echo "Invalid";
+        }
     }
 }
 ?>
