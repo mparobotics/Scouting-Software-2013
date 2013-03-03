@@ -94,7 +94,7 @@ class database
 		$result = $dbh->query ($query);
         
         if ($result) {
-            return $result->fetch();
+            return $result->fetchAll();
         }
 
 		$dbh = NULL;
