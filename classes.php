@@ -144,6 +144,13 @@ class analytics
     	
     }
     
+    public static function getAlliance($alliance) {
+        $data = explode("_", $alliance);
+        analytics::display("team", $data[0]);
+        analytics::display("team", $data[1]);
+        analytics::display("team", $data[2]);
+    }
+    
     public static function getTeam($number) {
         $matches = analytics::getTeamMatches($number);
         $teamdata = analytics::getTeamData($number);
@@ -187,7 +194,7 @@ class analytics
     
     public static function getMatch($event, $type, $number) {
         #SELECT * FROM `matchdata` WHERE `Event` = "#FRCCAMA" AND `MatchType` = "Q" AND `MatchNumber` = 6
-        $sql = "SELECT * FROM `matchdata` WHERE `Event` = '#".$event."' AND `MatchType` = '".$type."' AND `MatchNumber` = ".$number;
+        $sql = "SELECT * FROM `matchdata` WHERE `Event` = '#".$event."' AND `MatchType` = '".$type."' AND `MatchNumber` = ".$number." ORDER BY `MatchType` DESC , `MatchNumber` ASC";
         $response = database::returnmultiplerows($sql);
         return $response;
     }
@@ -198,7 +205,7 @@ class analytics
     
     public static function getTeamData($number) {
         #SELECT * FROM `teamdata` WHERE `TeamNumber` = 1234
-        $sql = "SELECT * FROM `teamdata` WHERE `TeamNumber` = ".$number;
+        $sql = "SELECT * FROM `teamdata` WHERE `TeamNumber` = ".$number." ORDER BY `MatchType` DESC , `MatchNumber` ASC";
         //echo $sql;
         $response = database::returnmultiplerows($sql);
         return $response;
@@ -206,7 +213,7 @@ class analytics
     
     public static function getTeamMatches($number) {
         #SELECT * FROM `matchdata` WHERE `Red1` = 701 OR `Red2` = 701 OR `Red3` = 701 OR `Blue1` = 701 OR `Blue2` = 701 OR `Blue3` = 701
-        $sql = "SELECT * FROM `matchdata` WHERE `Red1` = ".$number." OR `Red2` = ".$number." OR `Red3` = ".$number." OR `Blue1` = ".$number." OR `Blue2` = ".$number." OR `Blue3` = ".$number;
+        $sql = "SELECT * FROM `matchdata` WHERE `Red1` = ".$number." OR `Red2` = ".$number." OR `Red3` = ".$number." OR `Blue1` = ".$number." OR `Blue2` = ".$number." OR `Blue3` = ".$number." ORDER BY `MatchType` DESC , `MatchNumber` ASC";
         //echo $sql;
         $response = database::returnmultiplerows($sql);
         return $response;
@@ -217,6 +224,7 @@ class analytics
             echo "Event";
         } elseif ($view == "team") {
             $data = analytics::getTeam($detail);
+            echo "<h1>Scouting Data for Team Number: ".$detail."</h1>";
             echo '<table border="1"><th>Matches Won</th><th>Matches Lost</th><th>Matches Tied</th><th>Win Pct.</th><tr><td>'.$data[0].'</td><td>'.$data[1].'</td><td>'.$data[2].'</td><td>'.$data[3].'</td></tr></table><br />';
             echo '<table border="1"><th>Event</th><th>Type</th><th>Number</th><th>Red Score</th><th>Blue Score</th><th>Red Alliance</th><th>Blue Alliance</th><th>Red Climb</th><th>Blue Climb</th><th>Red Auto</th><th>Blue Auto</th><th>Red Teleop</th><th>Blue Teleop</th><th>Red Fouls</th><th>Blue Fouls</th>';
             foreach ($data[4] as $response) {
@@ -282,6 +290,8 @@ class analytics
             echo "Trends";
         } elseif ($view == "leaderboards") {
             echo "Leaderboards";
+        } elseif ($view == "alliance") {
+            analytics::getAlliance($detail);
         } else {
             echo "Invalid";
         }
