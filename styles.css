@@ -124,3 +124,28 @@ input {
     height: 100%;
     margin-top: -10px;
 }
+
+.Tied {
+    background: black;
+    color: white;
+}
+
+.Won {
+    background: green;
+    color: white;
+}
+
+.Lost {
+    background: red;
+    color: black;
+}
+
+.Red {
+    background: red;
+    color: black;
+}
+
+.Blue {
+    background: blue;
+    color: white;
+}
