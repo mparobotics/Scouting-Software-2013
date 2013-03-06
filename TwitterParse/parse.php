@@ -22,7 +22,7 @@
 
 include('classes.php');
 
-
+/*
   $doc = new DOMDocument();
   $doc->load('https://api.twitter.com/1/statuses/user_timeline.rss?screen_name=frcfms');
   $arrFeeds = array();
@@ -35,6 +35,46 @@ include('classes.php');
       );
     array_push($arrFeeds, $itemRSS);
   }
+
+*/
+
+
+
+
+/**
+ * @file
+ * 
+ */
+
+/* Load required lib files. */
+require_once('twitteroauth/twitteroauth.php');
+require_once('config.php');
+
+/* Create a TwitterOauth object with consumer/user tokens. */
+$connection = new TwitterOAuth($consumerKey, $consumerSceret, $accessToken, $accessSecret);
+
+/* If method is set change API call made. Test is called by default. */
+$content = $connection->get('account/rate_limit_status');
+echo "Current API hits remaining: {$content->remaining_hits}.<br />";
+
+/* Get logged in user to help with tests. */
+$user = $connection->get('account/verify_credentials');
+
+$twitterUser = "frcfms";
+$count = 175;
+
+$data = $connection->get('statuses/user_timeline', array('screen_name' => $twitterUser, 'count' => $count));
+
+$arrFeeds = array();
+
+foreach ($data as $d) {
+    #echo $d->text."<br />";
+    array_push($arrFeeds, $d->text);
+}
+
+#print_r($arrFeeds);
+
+
 
 //Sample Tweet to Parse
 //#FRCDEV1 TY P MC 6 RF 50 BF 179 RA 5 10 8 BA 4 2 3 RC 30 BC 30 RFP 0 BFP 0 RAS 0 BAS 60 RTS 20 BTS 89
@@ -53,51 +93,57 @@ print_r ($arrFeeds[$counter]['desc']);
 $itemDesc = array();
 
 $a = 0;
+$i = 0;
 
-for ( $i = 0; $i < 20; $i++) {
- foreach ($arrFeeds[$i] as $itemDesc) {
+foreach ($arrFeeds as $itemDesc) {
+    
   
-  $itemContent = explode(" ",$itemDesc);
- 
-  $matchLocation = $itemContent[1];
-  $matchType = $itemContent[3];
-  $matchNum = $itemContent[5];
-  $matchRF = $itemContent[7];
-  $matchBF = $itemContent[9];
-  
-  $matchROne = $itemContent[11];
-  $matchRTwo = $itemContent[12];
-  $matchRThr = $itemContent[13];
-
-  $matchBOne = $itemContent[15];
-  $matchBTwo = $itemContent[16];
-  $matchBThr = $itemContent[17];
-  
-  $matchRC = $itemContent[19];
-  $matchBC = $itemContent[21];
-  $matchRPen = $itemContent[23];
-  $matchBPen = $itemContent[25];
-  
-  $matchRAuto = $itemContent[27];
-  $matchBAuto = $itemContent[29];
-  $matchRTele = $itemContent[31];
-  $matchBTele = $itemContent[33];
+    $itemContent = explode(" ",$itemDesc);
+    
+    #print_r($itemContent);
+    
+    $matchLocation = $itemContent[0];
+    $matchType = $itemContent[2];
+    $matchNum = $itemContent[4];
+    $matchRF = $itemContent[6];
+    $matchBF = $itemContent[8];
+      
+    $matchROne = $itemContent[10];
+    $matchRTwo = $itemContent[11];
+    $matchRThr = $itemContent[12];
+    
+    $matchBOne = $itemContent[14];
+    $matchBTwo = $itemContent[15];
+    $matchBThr = $itemContent[16];
+      
+    $matchRC = $itemContent[18];
+    $matchBC = $itemContent[20];
+    $matchRPen = $itemContent[22];
+    $matchBPen = $itemContent[24];
+      
+    $matchRAuto = $itemContent[26];
+    $matchBAuto = $itemContent[28];
+    $matchRTele = $itemContent[30];
+    $matchBTele = $itemContent[32];
      
-     $isthereSQL = "SELECT *  FROM `matchdata` WHERE `Event` = '".$matchLocation."' AND `MatchType` = '".$matchType."' AND `MatchNumber` = ".$matchNum; 
+    $isthereSQL = "SELECT *  FROM `matchdata` WHERE `Event` = '".$matchLocation."' AND `MatchType` = '".$matchType."' AND `MatchNumber` = ".$matchNum; 
 
      
-     $sql = "INSERT INTO `scouting2013`.`matchdata` (`Event`, `MatchType`, `MatchNumber`, `RedFinal`, `BlueFinal`, `Red1`, `Red2`, `Red3`, `Blue1`, `Blue2`, `Blue3`, `RedClimb`, `BlueClimb`, `RedFoul`, `BlueFoul`, `RedAuto`, `BlueAuto`, `RedTeleop`, `BlueTeleop`, `Id`, `Timestamp`) VALUES ('".$matchLocation."', '".$matchType."', '".$matchNum."', '".$matchRF."', '".$matchBF."', '".$matchROne."', '".$matchRTwo."', '".$matchRThr."', '".$matchBOne."', '".$matchBTwo."', '".$matchBThr."', '".$matchRC."', '".$matchBC."', '".$matchRPen."', '".$matchBPen."', '".$matchRAuto."', '".$matchBAuto."', '".$matchRTele."', '".$matchBTele."', NULL, NOW());";
-     echo('<tr><td>'.$matchLocation.'</td><td>'.$matchType.'</td><td>'.$matchNum.'</td><td>'.$matchRF.'</td><td>'.$matchBF.'</td><td>'.$matchROne.'</td><td>'.$matchRTwo.'</td><td>'.$matchRThr.'</td><td>'.$matchBOne.'</td><td>'.$matchBTwo.'</td><td>'.$matchBThr.'</td><td>'.$matchRC.'</td><td>'.$matchBC.'</td><td>'.$matchRPen.'</td><td>'.$matchBPen.'</td><td>'.$matchRAuto.'</td><td>'.$matchBAuto.'</td><td>'.$matchRTele.'</td><td>'.$matchBTele.'</td></tr>');
+    $sql = "INSERT INTO `scouting2013`.`matchdata` (`Event`, `MatchType`, `MatchNumber`, `RedFinal`, `BlueFinal`, `Red1`, `Red2`, `Red3`, `Blue1`, `Blue2`, `Blue3`, `RedClimb`, `BlueClimb`, `RedFoul`, `BlueFoul`, `RedAuto`, `BlueAuto`, `RedTeleop`, `BlueTeleop`, `Id`, `Timestamp`) VALUES ('".$matchLocation."', '".$matchType."', '".$matchNum."', '".$matchRF."', '".$matchBF."', '".$matchROne."', '".$matchRTwo."', '".$matchRThr."', '".$matchBOne."', '".$matchBTwo."', '".$matchBThr."', '".$matchRC."', '".$matchBC."', '".$matchRPen."', '".$matchBPen."', '".$matchRAuto."', '".$matchBAuto."', '".$matchRTele."', '".$matchBTele."', NULL, NOW());";
+    echo('<tr><td>'.$matchLocation.'</td><td>'.$matchType.'</td><td>'.$matchNum.'</td><td>'.$matchRF.'</td><td>'.$matchBF.'</td><td>'.$matchROne.'</td><td>'.$matchRTwo.'</td><td>'.$matchRThr.'</td><td>'.$matchBOne.'</td><td>'.$matchBTwo.'</td><td>'.$matchBThr.'</td><td>'.$matchRC.'</td><td>'.$matchBC.'</td><td>'.$matchRPen.'</td><td>'.$matchBPen.'</td><td>'.$matchRAuto.'</td><td>'.$matchBAuto.'</td><td>'.$matchRTele.'</td><td>'.$matchBTele.'</td></tr>');
+     
      if (database::returnmultiplerows($isthereSQL)) {
          $a++;
      } else {
          database::writedata($sql);
      }
-     flush();
+     
+    $i++;
+    flush();
      
 
-  }
 }
+echo "<br />";
 echo $i." rows were processed"."<br />";
 echo $a." rows were omitted";
 

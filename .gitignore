@@ -219,3 +219,5 @@ phpmyadmin/
 
 #test pages
 test.php
+config.php
+TwitterParse/config.php
