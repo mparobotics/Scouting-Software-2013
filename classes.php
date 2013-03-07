@@ -254,9 +254,6 @@ class analytics
                         $matchStatus = "Won";
                         $alliance = "Red";
                         $r3 = '<strong>';
-                    } elseif ($response[3] > $response[4])  {
-                        $matchStatus = "Lost";
-                        $alliance = "Blue";
                     } elseif (($response[8] == $detail) && ($response[3] < $response[4])) {
                         $matchStatus = "Won";
                         $alliance = "Blue";
@@ -269,9 +266,30 @@ class analytics
                         $matchStatus = "Won";
                         $alliance = "Blue";
                         $b3 = '<strong>';
-                    } else {
+                    } elseif (($response[5] == $detail) && ($response[3] < $response[4])) {
                         $matchStatus = "Lost";
                         $alliance = "Red";
+                        $r1 = '<strong>';
+                    } elseif (($response[6] == $detail) && ($response[3] < $response[4])) {
+                        $matchStatus = "Lost";
+                        $alliance = "Red";
+                        $r2 = '<strong>';
+                    } elseif (($response[7] == $detail) && ($response[3] < $response[4])) {
+                        $matchStatus = "Lost";
+                        $alliance = "Red";
+                        $r3 = '<strong>';
+                    } elseif (($response[8] == $detail) && ($response[3] > $response[4])) {
+                        $matchStatus = "Lost";
+                        $alliance = "Blue";
+                        $b1 = '<strong>';
+                    } elseif (($response[9] == $detail) && ($response[3] > $response[4])) {
+                        $matchStatus = "Lost";
+                        $alliance = "Blue";
+                        $b2 = '<strong>';
+                    } elseif (($response[10] == $detail) && ($response[3] > $response[4])) {
+                        $matchStatus = "Lost";
+                        $alliance = "Blue";
+                        $b3 = '<strong>';
                     }
                 }
                 
