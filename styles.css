@@ -162,3 +162,17 @@ iframe {
     background: blue;
     color: white;
 }
+
+.Lost a, .Won a, .Tied a {
+	color:#fff;
+}
+
+.redalliance a {
+	color: #f00;
+	text-decoration:none;
+}
+
+.bluealliance a {
+	color:#00f;
+	text-decoration:none;
+}

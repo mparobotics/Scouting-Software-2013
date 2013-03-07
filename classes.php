@@ -220,6 +220,13 @@ class analytics
     }
     
     public static function display($view, $detail) {
+    $r1 = 0;
+    $r2 = 0;
+    $r3 = 0;
+    $b1 = 0;
+    $b2 = 0;
+    $b3 = 0;
+    
         if ($view == "event") {
             echo "Event";
         } elseif ($view == "team") {
@@ -233,42 +240,67 @@ class analytics
                 if ($response[3] == $response[4]) {
                     #Tie
                     $matchStatus = "Tied";
-                } elseif ($response[3] > $response[4]) {
-                    #Red win
-                    if ($response[5] == $detail) {
+                }
+                else {
+                    if (($response[5] == $detail) && ($response[3] > $response[4])) {
                         $matchStatus = "Won";
                         $alliance = "Red";
-                    } elseif ($response[6] == $detail) {
+                        $r1 = true;
+                    } elseif (($response[6] == $detail) && ($response[3] > $response[4])) {
                         $matchStatus = "Won";
                         $alliance = "Red";
-                    } elseif ($response[7] == $detail) {
+                        $r2 = true;
+                    } elseif (($response[7] == $detail) && ($response[3] > $response[4])) {
                         $matchStatus = "Won";
                         $alliance = "Red";
-                    } else {
+                        $team = true;
+                    } elseif ($response[3] > $response[4])  {
                         $matchStatus = "Lost";
                         $alliance = "Blue";
-                    }
-                } elseif ($response[3] < $response[4]) {
-                    #Blue win
-                    if ($response[5] == $detail) {
-                        $matchStatus = "Lost";
-                        $alliance = "Red";
-                    } elseif ($response[6] == $detail) {
-                        $matchStatus = "Lost";
-                        $alliance = "Red";
-                    } elseif ($response[7] == $detail) {
-                        $matchStatus = "Lost";
-                        $alliance = "Red";
-                    } else {
+                    } elseif (($response[8] == $detail) && ($response[3] < $response[4])) {
                         $matchStatus = "Won";
                         $alliance = "Blue";
+                        $b1 = true;
+                    } elseif (($response[9] == $detail) && ($response[3] < $response[4])) {
+                        $matchStatus = "Won";
+                        $alliance = "Blue";
+                        $b2 = true;
+                    } elseif (($response[10] == $detail) && ($response[3] < $response[4])) {
+                        $matchStatus = "Won";
+                        $alliance = "Blue";
+                        $b3 = true;
+                    } else {
+                        $matchStatus = "Lost";
+                        $alliance = "Red";
                     }
                 }
+                
                 
                 #<td><a href="http://scouting.dbztech.com/Analytics/analytics.php?view=team&detail='.$response[5].'">'.$response[5].'</a>, <a href="http://scouting.dbztech.com/Analytics/analytics.php?view=team&detail='.$response[6].'">'.$response[6].'</a>, <a href="http://scouting.dbztech.com/Analytics/analytics.php?view=team&detail='.$response[7].'">'.$response[7].'</a></td>
                 #<td>'.$response[8].', '.$response[9].', '.$response[10].'</td>
                 
-                echo '<tr><td>'.$response[0].'</td><td class="'.$alliance.'">'.$response[1].'</td><td class="'.$matchStatus.'"><a href="http://scouting.dbztech.com/Analytics/analytics.php?view=match&detail='.str_replace("#", "", $response[0]).'_'.$response[1].'_'.$response[2].'">'.$response[2].'</a></td><td>'.$response[3].'</td><td>'.$response[4].'</td><td><a href="http://scouting.dbztech.com/Analytics/analytics.php?view=team&detail='.$response[5].'">'.$response[5].'</a>, <a href="http://scouting.dbztech.com/Analytics/analytics.php?view=team&detail='.$response[6].'">'.$response[6].'</a>, <a href="http://scouting.dbztech.com/Analytics/analytics.php?view=team&detail='.$response[7].'">'.$response[7].'</a></td><td><a href="http://scouting.dbztech.com/Analytics/analytics.php?view=team&detail='.$response[8].'">'.$response[8].'</a>, <a href="http://scouting.dbztech.com/Analytics/analytics.php?view=team&detail='.$response[9].'">'.$response[9].'</a>, <a href="http://scouting.dbztech.com/Analytics/analytics.php?view=team&detail='.$response[10].'">'.$response[10].'</a></td><td>'.$response[11].'</td><td>'.$response[12].'</td><td>'.$response[15].'</td><td>'.$response[16].'</td><td>'.$response[17].'</td><td>'.$response[18].'</td><td>'.$response[13].'</td><td>'.$response[14].'</td></tr>';
+                echo '<tr><td class="event">'.$response[0].'</td>
+                <td class="'.$alliance.'">'.$response[1].'</td>
+                <td class="'.$matchStatus.'">
+                	<a href="http://scouting.dbztech.com/Analytics/analytics.php?view=match&detail='.str_replace("#", "", $response[0]).'_'.$response[1].'_'.$response[2].'">'.$response[2].'</a></td>
+                <td class="redscore">'.$response[3].'</td>
+                <td class="bluescore">'.$response[4].'</td>
+                <td class="redalliance">
+                	<a href="http://scouting.dbztech.com/Analytics/analytics.php?view=team&detail='.$response[5].'">'.$response[5].'</a>, 
+                	<a href="http://scouting.dbztech.com/Analytics/analytics.php?view=team&detail='.$response[6].'">'.$response[6].'</a>, 
+                	<a href="http://scouting.dbztech.com/Analytics/analytics.php?view=team&detail='.$response[7].'">'.$response[7].'</a></td>
+                <td class="bluealliance">
+                	<a href="http://scouting.dbztech.com/Analytics/analytics.php?view=team&detail='.$response[8].'">'.$response[8].'</a>, 
+                	<a href="http://scouting.dbztech.com/Analytics/analytics.php?view=team&detail='.$response[9].'">'.$response[9].'</a>, 
+                	<a href="http://scouting.dbztech.com/Analytics/analytics.php?view=team&detail='.$response[10].'">'.$response[10].'</a></td>
+				<td>'.$response[11].'</td>
+				<td>'.$response[12].'</td>
+				<td>'.$response[15].'</td>
+				<td>'.$response[16].'</td>
+				<td>'.$response[17].'</td>
+				<td>'.$response[18].'</td>
+				<td>'.$response[13].'</td>
+				<td>'.$response[14].'</td></tr>';
             }
             echo '</table><br />';
                 
