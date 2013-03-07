@@ -213,7 +213,7 @@ class analytics
     
     public static function getTeamMatches($number) {
         #SELECT * FROM `matchdata` WHERE `Red1` = 701 OR `Red2` = 701 OR `Red3` = 701 OR `Blue1` = 701 OR `Blue2` = 701 OR `Blue3` = 701
-        $sql = "SELECT * FROM `matchdata` WHERE `Red1` = ".$number." OR `Red2` = ".$number." OR `Red3` = ".$number." OR `Blue1` = ".$number." OR `Blue2` = ".$number." OR `Blue3` = ".$number." ORDER BY `MatchType` DESC , `MatchNumber` ASC";
+        $sql = "SELECT * FROM `matchdata` WHERE `MatchType` != 'P' AND (`Red1` = ".$number." OR `Red2` = ".$number." OR `Red3` = ".$number." OR `Blue1` = ".$number." OR `Blue2` = ".$number." OR `Blue3` = ".$number.") ORDER BY `MatchType` DESC , `MatchNumber` ASC";
         //echo $sql;
         $response = database::returnmultiplerows($sql);
         return $response;
