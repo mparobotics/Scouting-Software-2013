@@ -1,5 +1,5 @@
 <?php
-$data = analytics::getTeam($detail);
+            $data = analytics::getTeam($detail);
             echo "<h1>Scouting Data for Team Number: ".$detail."</h1>";
             echo '<table border="1"><th>Matches Won</th><th>Matches Lost</th><th>Matches Tied</th><th>Win Pct.</th><tr><td>'.$data[0].'</td><td>'.$data[1].'</td><td>'.$data[2].'</td><td>'.$data[3].'</td></tr></table><br />';
             echo '<table border="1"><th>Event</th><th>Type</th><th>Number</th><th>Red Score</th><th>Blue Score</th><th>Red Alliance</th><th>Blue Alliance</th><th>Red Climb</th><th>Blue Climb</th><th>Red Auto</th><th>Blue Auto</th><th>Red Teleop</th><th>Blue Teleop</th><th>Red Fouls</th><th>Blue Fouls</th>';
@@ -97,8 +97,8 @@ $data = analytics::getTeam($detail);
             }
             echo '</table><br />';
                 
-            echo '<table border="1"><th>Team Number</th><th>Match Number</th><th>Match Type</th><th>Overall</th><th>Schooting</th><th>Lifting</th><th>Assisting</th><th>Penalties</th><th>Comments</th>';
+            echo '<table border="1"><th>Event</th><th>Team Number</th><th>Match Number</th><th>Match Type</th><th>Overall</th><th>Schooting</th><th>Lifting</th><th>Assisting</th><th>Penalties</th><th>Comments</th>';
             foreach ($data[5] as $response) {
-                echo '<tr><td>'.$response[0].'</td><td>'.$response[1].'</td><td>'.$response[2].'</td><td>'.$response[3].'</td><td>'.$response[4].'</td><td>'.$response[5].'</td><td>'.$response[6].'</td><td>'.$response[7].'</td><td>'.$response[8].'</td></tr>';
+                echo '<tr><td>'.$response[0].'</td><td>'.$response[1].'</td><td>'.$response[2].'</td><td>'.$response[3].'</td><td>'.$response[4].'</td><td>'.$response[5].'</td><td>'.$response[6].'</td><td>'.$response[7].'</td><td>'.$response[8].'</td><td>'.$response[9].'</td></tr>';
             }
             echo '</table>';

@@ -1,5 +1,5 @@
 <?php
-$data = explode("_",$detail);
+            $data = explode("_",$detail);
             $db = analytics::getMatch($data[0], $data[1], $data[2]);
             $response = $db[0];
             echo '<table border="1"><th>Event</th><th>Type</th><th>Number</th><th>Red Score</th><th>Blue Score</th><th>Red Alliance</th><th>Blue Alliance</th><th>Red Climb</th><th>Blue Climb</th><th>Red Auto</th><th>Blue Auto</th><th>Red Teleop</th><th>Blue Teleop</th><th>Red Fouls</th><th>Blue Fouls</th>';
