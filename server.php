@@ -8,7 +8,7 @@ $query = $_GET['query'];
 $device = $_GET['device'];
 $data = $_GET['data'];
 
-$sync = array(false,false);
+$sync = array(true,true);
 
 
 include('classes.php');
@@ -25,6 +25,7 @@ if ($query == "alive") {
         }
     }
 } elseif ($query == "data") {
+    $event = $_GET['event'];
     $result = array();
     foreach (explode('_', $data) as $piece) {
         $result[] = explode(',', $piece);
@@ -37,7 +38,7 @@ if ($query == "alive") {
     
     foreach ($result as $r) {
         if ($i >= 0) {
-            $sql = "INSERT INTO `scouting2013`.`teamdata` (`TeamNumber`, `MatchNumber`, `MatchType`, `Overall`, `Shooting`, `Lifting`, `Assisting`, `Penalties`, `Comments`, `Id`, `Timestamp`) VALUES ('".$r[0]."', '".$r[1]."', '".$r[2]."', '".$r[3]."', '".$r[4]."', '".$r[5]."', '".$r[6]."', '".$r[7]."', '".$r[8]."', NULL, NOW());";
+            $sql = "INSERT INTO `scouting2013`.`teamdata` (`Event`, `TeamNumber`, `MatchNumber`, `MatchType`, `Overall`, `Shooting`, `Lifting`, `Assisting`, `Penalties`, `Comments`, `Id`, `Timestamp`) VALUES ('#".$event."', '".$r[0]."', '".$r[1]."', '".$r[2]."', '".$r[3]."', '".$r[4]."', '".$r[5]."', '".$r[6]."', '".$r[7]."', '".$r[8]."', NULL, NOW());";
             echo $sql."\n";
             database::writedata($sql);
         }

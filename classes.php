@@ -322,9 +322,9 @@ class analytics
             }
             echo '</table><br />';
                 
-            echo '<table border="1"><th>Team Number</th><th>Match Number</th><th>Match Type</th><th>Overall</th><th>Schooting</th><th>Lifting</th><th>Assisting</th><th>Penalties</th><th>Comments</th>';
+            echo '<table border="1"><th>Event</th><th>Team Number</th><th>Match Number</th><th>Match Type</th><th>Overall</th><th>Schooting</th><th>Lifting</th><th>Assisting</th><th>Penalties</th><th>Comments</th>';
             foreach ($data[5] as $response) {
-                echo '<tr><td>'.$response[0].'</td><td>'.$response[1].'</td><td>'.$response[2].'</td><td>'.$response[3].'</td><td>'.$response[4].'</td><td>'.$response[5].'</td><td>'.$response[6].'</td><td>'.$response[7].'</td><td>'.$response[8].'</td></tr>';
+                echo '<tr><td>'.$response[0].'</td><td>'.$response[1].'</td><td>'.$response[2].'</td><td>'.$response[3].'</td><td>'.$response[4].'</td><td>'.$response[5].'</td><td>'.$response[6].'</td><td>'.$response[7].'</td><td>'.$response[8].'</td><td>'.$response[9].'</td></tr>';
             }
             echo '</table>';
         } elseif ($view == "match") {

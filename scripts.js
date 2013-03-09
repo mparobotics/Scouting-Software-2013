@@ -57,7 +57,7 @@ function sync() {
                     Data.teamData = "";
                 }
               }
-            xmlhttp.open("GET","/server.php?query=data&data="+Data.teamData,true);
+            xmlhttp.open("GET","/server.php?query=data&data="+Data.teamData+"&event="+Data.event,true);
             xmlhttp.send();
             Sync.resetTimer();
         }
@@ -69,6 +69,7 @@ var Sync = new sync;
 function data() {
     
     this.id = localStorage.getItem('deviceId');
+    this.event = localStorage.getItem('eventLocation');
     this.lastSync = localStorage.getItem('lastSync');
     this.teamData = localStorage.getItem('teamData');
     this.matchData = localStorage.getItem('matchData');
@@ -91,7 +92,9 @@ function data() {
     
     this.setDeviceId = function() {
         localStorage.setItem('deviceId', document.getElementById('deviceNumber').value);
+        localStorage.setItem('eventLocation', document.getElementById('eventLocation').value);
         Data.id = localStorage.getItem('deviceId');
+        Data.event = localStorage.getItem('eventLocation');
         View.pushView(2);
         return true;
     };
