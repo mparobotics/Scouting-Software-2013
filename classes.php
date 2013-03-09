@@ -220,6 +220,7 @@ class analytics
     }
     
     public static function display($view, $detail) {
+<<<<<<< HEAD
     
         if ($view == "event") {
             echo "Event";
@@ -341,6 +342,30 @@ class analytics
         } elseif ($view == "leaderboards") {
             echo "Leaderboards";
         } elseif ($view == "alliance") {
+=======
+    error_reporting(E_ALL);
+    	$filename = '../Views/'.$view.'.php';
+    	//echo $filename.' ';
+    	//echo "current working directory is -> ". getcwd().'<br /><br />';
+    	//include('Views/'.$view.'.php');
+    	if (file_exists($filename)) {
+    		include($filename);
+    	}
+// 		  if ($view == "event") {
+//             include '/Views/event.php';
+//         } elseif ($view == "team") {
+//         	include 'Views/team.php';
+//         } elseif ($view == "match") {
+//             include 'Views/match.php';
+//         } elseif ($view == "stat") {
+// 			include 'Views/stat.php';
+//         } elseif ($view == "trends") {
+//             include 'Views/trends.php'
+//         } elseif ($view == "leaderboards") {
+//             include 'Views/leaderboards.php';
+//         } 
+		elseif ($view == "alliance") {
+>>>>>>> Moved each analytics view to its own file
             analytics::getAlliance($detail);
         } else {
             echo "Invalid";
