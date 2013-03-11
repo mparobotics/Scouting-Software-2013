@@ -26,6 +26,9 @@ if ($query == "alive") {
     }
 } elseif ($query == "data") {
     $event = $_GET['event'];
+	if ($data == "file") {
+		$data = file_get_contents('data.txt', true);
+	}
     $result = array();
     foreach (explode('_', $data) as $piece) {
         $result[] = explode(',', $piece);
