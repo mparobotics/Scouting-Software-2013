@@ -144,6 +144,29 @@ class analytics
     	
     }
     
+    public static function getEventList() {
+        $sql = "SELECT `Event` FROM `matchdata` WHERE 1";
+        $data = database::returnmultiplerows($sql);
+        $list = array();
+        foreach ($data as $nextlevel) {
+            foreach ($nextlevel as $event) {
+                #echo $event;
+                array_push($list, $event);
+            }
+        }
+        $output = array_unique($list);
+        return $output;
+    }
+    
+    public static function formatEvents() {
+        $data = analytics::getEventList();
+        echo "<select>";
+        foreach ($data as $event) {
+            echo "<option>".$event."</option>";
+        }
+        echo "</select>";
+    }
+    
     public static function getAlliance($alliance) {
         $data = explode("_", $alliance);
         analytics::display("team", $data[0]);

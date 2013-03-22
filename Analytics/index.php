@@ -1,3 +1,4 @@
+<?php include('../classes.php'); ?>
 <html>
     <head>
         <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
@@ -18,7 +19,7 @@
         <br />
         <div id="leftFragment" class="fragment">
             <div style="padding: 5px; text-align: center; padding-top: 10px;">
-                <input type="text" placeholder="Search" class="search" style="height: 30px;width: 100%;margin-bottom: 25px;" />
+                <?php analytics::formatEvents(); ?>
                 <p class="fragmentObject" onclick="View.pushView(6);">Event Details</p>
                 <p class="fragmentObject" onclick="View.pushView(7);">Scout a Team</p>
                 <p class="fragmentObject" onclick="View.pushView(8);">Scout a Match</p>
