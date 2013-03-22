@@ -109,7 +109,24 @@ function data() {
         document.getElementById('teamStat2Label').innerHTML = "Team: "+Data.team2;
         document.getElementById('teamStat3Label').innerHTML = "Team: "+Data.team3;
         document.getElementById('teamMatchLabel').innerHTML = "Match: "+Data.matchNumber;
+        localStorage.setItem('matchNumber', Data.matchNumber);
+        localStorage.setItem('matchType', Data.matchType);
         View.pushView(3);
+        return true;
+    };
+    
+    this.iterateTeams = function() {
+        Data.matchNumber = localStorage.getItem('matchNumber');
+        Data.matchType = localStorage.getItem('matchType');
+        if (Data.matchNumber == null) {
+            Data.matchType = "P";
+            Data.matchNumber = 0;
+            localStorage.setItem('matchNumber', Data.matchNumber);
+            localStorage.setItem('matchType', Data.matchType);
+        }
+        document.getElementById('matchNumber').value = parseInt(Data.matchNumber)+1;
+        document.getElementById('type').value = Data.matchType;
+        console.log("Iterated");
         return true;
     };
     
@@ -196,6 +213,7 @@ function view() {
                 Core.hideId('view5');
                 break;
                 case 2:
+                Data.iterateTeams();
                 Core.hideId('view1');
                 Core.showId('view2');
                 Core.hideId('view3');
