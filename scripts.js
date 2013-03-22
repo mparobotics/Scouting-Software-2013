@@ -18,6 +18,10 @@ function delay(command, time) {
     setTimeout(command, time);
 }
 
+function analyticsLoad() {
+    View.pushView(6);
+}
+
 function sync() {
     this.check = function(id) {
         var xmlhttp;
