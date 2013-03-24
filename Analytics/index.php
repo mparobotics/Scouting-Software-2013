@@ -39,13 +39,13 @@
                 <p>Get info on a specific team</p>
                 <div id="teamDetail">
                     <p>Find a Team:</p>
-                    <input type="number" id="teamSearch" onchange="document.getElementById('teamFrame').src = '/Analytics/analytics.php?view=team&detail='+document.getElementById('teamSearch').value;" /><input type="button" value="Go!" onclick="document.getElementById('teamFrame').src = 'http://scouting.dbztech.com/Analytics/analytics.php?view=team&detail='+document.getElementById('teamSearch').value;" />
+                    <input type="number" id="teamSearch" onchange="document.getElementById('teamFrame').src = '/Analytics/analytics.php?view=team&detail='+document.getElementById('teamSearch').value+'&event='+document.getElementById('eventSelector').value;" /><input type="button" value="Go!" onclick="document.getElementById('teamFrame').src = '/Analytics/analytics.php?view=team&detail='+document.getElementById('teamSearch').value+'&event='+document.getElementById('eventSelector').value;" />
                     <hr />
                     <p>Find an Alliance:</p>
-                    <input type="number" id="allianceSearch1" onchange="document.getElementById('teamFrame').src = '/Analytics/analytics.php?view=alliance&detail='+document.getElementById('allianceSearch1').value+'_'+document.getElementById('allianceSearch2').value+'_'+document.getElementById('allianceSearch3').value;" />
-                    <input type="number" id="allianceSearch2" onchange="document.getElementById('teamFrame').src = '/Analytics/analytics.php?view=alliance&detail='+document.getElementById('allianceSearch1').value+'_'+document.getElementById('allianceSearch2').value+'_'+document.getElementById('allianceSearch3').value;" />
-                    <input type="number" id="allianceSearch3" onchange="document.getElementById('teamFrame').src = '/Analytics/analytics.php?view=alliance&detail='+document.getElementById('allianceSearch1').value+'_'+document.getElementById('allianceSearch2').value+'_'+document.getElementById('allianceSearch3').value;" />
-                    <input type="button" value="Go!" onclick="document.getElementById('teamFrame').src = '/Analytics/analytics.php?view=alliance&detail='+document.getElementById('allianceSearch1').value+'_'+document.getElementById('allianceSearch2').value+'_'+document.getElementById('allianceSearch3').value;" />
+                    <input type="number" id="allianceSearch1" onchange="document.getElementById('teamFrame').src = '/Analytics/analytics.php?view=alliance&detail='+document.getElementById('allianceSearch1').value+'_'+document.getElementById('allianceSearch2').value+'_'+document.getElementById('allianceSearch3').value+'&event='+document.getElementById('eventSelector').value;" />
+                    <input type="number" id="allianceSearch2" onchange="document.getElementById('teamFrame').src = '/Analytics/analytics.php?view=alliance&detail='+document.getElementById('allianceSearch1').value+'_'+document.getElementById('allianceSearch2').value+'_'+document.getElementById('allianceSearch3').value+'&event='+document.getElementById('eventSelector').value;" />
+                    <input type="number" id="allianceSearch3" onchange="document.getElementById('teamFrame').src = '/Analytics/analytics.php?view=alliance&detail='+document.getElementById('allianceSearch1').value+'_'+document.getElementById('allianceSearch2').value+'_'+document.getElementById('allianceSearch3').value+'&event='+document.getElementById('eventSelector').value;" />
+                    <input type="button" value="Go!" onclick="document.getElementById('teamFrame').src = '/Analytics/analytics.php?view=alliance&detail='+document.getElementById('allianceSearch1').value+'_'+document.getElementById('allianceSearch2').value+'_'+document.getElementById('allianceSearch3').value;+'&event='+document.getElementById('eventSelector').value" />
                     <br />
                     <iframe src="/Analytics/analytics.php?view=team&detail=3303" id="teamFrame" style="margin-top: 20px;">No iFrame Support</iframe>
                 </div>
@@ -54,13 +54,12 @@
                 <h1>Scout a Match</h1>
                 <p>Review a Particular Match</p>
                 <div id="matchDetail">
-                    <input id="matchSearch1" type="text" onchange="document.getElementById('matchFrame').src = '/Analytics/analytics.php?view=match&detail='+document.getElementById('matchSearch1').value+'_'+document.getElementById('matchSearch2').value+'_'+document.getElementById('matchSearch3').value;" />
-                    <select id="matchSearch2" onchange="document.getElementById('matchFrame').src = '/Analytics/analytics.php?view=match&detail='+document.getElementById('matchSearch1').value+'_'+document.getElementById('matchSearch2').value+'_'+document.getElementById('matchSearch3').value;">
+                    <select id="matchSearch2" onchange="document.getElementById('matchFrame').src = '/Analytics/analytics.php?view=match&detail='+document.getElementById('eventSelector').value+'_'+document.getElementById('matchSearch2').value+'_'+document.getElementById('matchSearch3').value;">
                         <option value="P">Practice</option>
                         <option value="Q">Qualifing</option>
                         <option value="E">Elemination</option>
                     </select>
-                    <input type="number" id="matchSearch3" onchange="document.getElementById('matchFrame').src = '/Analytics/analytics.php?view=match&detail='+document.getElementById('matchSearch1').value+'_'+document.getElementById('matchSearch2').value+'_'+document.getElementById('matchSearch3').value;" />
+                    <input type="number" id="matchSearch3" placeholder="Match Number" onchange="document.getElementById('matchFrame').src = '/Analytics/analytics.php?view=match&detail='+document.getElementById('eventSelector').value+'_'+document.getElementById('matchSearch2').value+'_'+document.getElementById('matchSearch3').value;" />
                     <iframe src="/Analytics/analytics.php?view=team&detail=3303" id="matchFrame" style="margin-top: 20px;">No iFrame Support</iframe>
                 </div>
             </div>

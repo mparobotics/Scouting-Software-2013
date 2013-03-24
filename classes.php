@@ -136,6 +136,8 @@ class database
 
 class analytics
 {
+    public static $event = "";
+    
     public static function countArray($array) {
     	
     }
@@ -155,14 +157,17 @@ class analytics
             }
         }
         $output = array_unique($list);
+        $output = str_replace("#", "", $output);
+        sort($output);
         return $output;
     }
     
     public static function formatEvents() {
         $data = analytics::getEventList();
-        echo "<select>";
+        echo '<select id="eventSelector">';
+        echo '<option value="All">All</option>';
         foreach ($data as $event) {
-            echo "<option>".$event."</option>";
+            echo '<option value="'.$event.'">'.$event."</option>";
         }
         echo "</select>";
     }
@@ -216,8 +221,14 @@ class analytics
     }
     
     public static function getMatch($event, $type, $number) {
+        if ($event == 'All') {
+            analytics::$event = "";
+        } else {
+            analytics::$event = "`Event` = '#".$event."' AND ";
+        }
         #SELECT * FROM `matchdata` WHERE `Event` = "#FRCCAMA" AND `MatchType` = "Q" AND `MatchNumber` = 6
-        $sql = "SELECT * FROM `matchdata` WHERE `Event` = '#".$event."' AND `MatchType` = '".$type."' AND `MatchNumber` = ".$number." ORDER BY `MatchType` DESC , `MatchNumber` ASC";
+        $sql = "SELECT * FROM `matchdata` WHERE ".analytics::$event." `MatchType` = '".$type."' AND `MatchNumber` = ".$number." ORDER BY `MatchType` DESC , `MatchNumber` ASC";
+        echo $sql;
         $response = database::returnmultiplerows($sql);
         return $response;
     }
@@ -236,7 +247,7 @@ class analytics
     
     public static function getTeamMatches($number) {
         #SELECT * FROM `matchdata` WHERE `Red1` = 701 OR `Red2` = 701 OR `Red3` = 701 OR `Blue1` = 701 OR `Blue2` = 701 OR `Blue3` = 701
-        $sql = "SELECT * FROM `matchdata` WHERE `MatchType` != 'P' AND (`Red1` = ".$number." OR `Red2` = ".$number." OR `Red3` = ".$number." OR `Blue1` = ".$number." OR `Blue2` = ".$number." OR `Blue3` = ".$number.") ORDER BY `MatchType` DESC , `MatchNumber` ASC";
+        $sql = "SELECT * FROM `matchdata` WHERE `MatchType` != 'P' AND ".analytics::$event." (`Red1` = ".$number." OR `Red2` = ".$number." OR `Red3` = ".$number." OR `Blue1` = ".$number." OR `Blue2` = ".$number." OR `Blue3` = ".$number.") ORDER BY `MatchType` DESC , `MatchNumber` ASC";
         //echo $sql;
         $response = database::returnmultiplerows($sql);
         return $response;

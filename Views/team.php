@@ -81,13 +81,13 @@
                     <td class="redscore">'.$response[3].'</td>
                     <td class="bluescore">'.$response[4].'</td>
                     <td class="redalliance">';
-                        echo $r1.'<a href="http://scouting.dbztech.com/Analytics/analytics.php?view=team&detail='.$response[5].'">'.$response[5].'</a></strong>, '; 
-                        echo $r2.'<a href="http://scouting.dbztech.com/Analytics/analytics.php?view=team&detail='.$response[6].'">'.$response[6].'</a></strong>, ';
-                        echo $r3.'<a href="http://scouting.dbztech.com/Analytics/analytics.php?view=team&detail='.$response[7].'">'.$response[7].'</a></strong></td>';
+                        echo $r1.'<a href="/Analytics/analytics.php?view=team&detail='.$response[5].'">'.$response[5].'</a></strong>, '; 
+                        echo $r2.'<a href="/Analytics/analytics.php?view=team&detail='.$response[6].'">'.$response[6].'</a></strong>, ';
+                        echo $r3.'<a href="/Analytics/analytics.php?view=team&detail='.$response[7].'">'.$response[7].'</a></strong></td>';
                     echo '<td class="bluealliance">';
-                        echo $b1.'<a href="http://scouting.dbztech.com/Analytics/analytics.php?view=team&detail='.$response[8].'">'.$response[8].'</a></strong>, ';
-                        echo $b2.'<a href="http://scouting.dbztech.com/Analytics/analytics.php?view=team&detail='.$response[9].'">'.$response[9].'</a></strong>, ';
-                        echo $b3.'<a href="http://scouting.dbztech.com/Analytics/analytics.php?view=team&detail='.$response[10].'">'.$response[10].'</a></strong></td>';
+                        echo $b1.'<a href="/Analytics/analytics.php?view=team&detail='.$response[8].'">'.$response[8].'</a></strong>, ';
+                        echo $b2.'<a href="/Analytics/analytics.php?view=team&detail='.$response[9].'">'.$response[9].'</a></strong>, ';
+                        echo $b3.'<a href="/Analytics/analytics.php?view=team&detail='.$response[10].'">'.$response[10].'</a></strong></td>';
                     echo '<td>'.$response[11].'</td>
                     <td>'.$response[12].'</td>
                     <td>'.$response[15].'</td>
@@ -99,7 +99,7 @@
                 }
                 echo '</table><br />';
             } else {
-                echo file_get_contents('http://scouting.dbztech.com/Analytics/analytics.php?view=team&detail='.$detail);
+                echo file_get_contents('/Analytics/analytics.php?view=team&detail='.$detail);
             }
 
 
