@@ -8,7 +8,7 @@ $query = $_GET['query'];
 $device = $_GET['device'];
 $data = $_GET['data'];
 
-$sync = array(true,true);
+$sync = array(false,false);
 
 
 include('classes.php');
