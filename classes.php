@@ -8,7 +8,7 @@ class database
     static protected $dbuser = 'scoutinguser';
     static protected $dbpassword = 'hunter3';
     #Do Not Set to localhost, does not work in all environments
-    static protected $dbhost = '127.0.0.1';
+    static protected $dbhost = 'dbztech.com';
     static protected $database = 'scouting2013';
     static protected $prefix = '';
 
@@ -228,7 +228,7 @@ class analytics
         }
         #SELECT * FROM `matchdata` WHERE `Event` = "#FRCCAMA" AND `MatchType` = "Q" AND `MatchNumber` = 6
         $sql = "SELECT * FROM `matchdata` WHERE ".analytics::$event." `MatchType` = '".$type."' AND `MatchNumber` = ".$number." ORDER BY `MatchType` DESC , `MatchNumber` ASC";
-        echo $sql;
+        #echo $sql;
         $response = database::returnmultiplerows($sql);
         return $response;
     }
