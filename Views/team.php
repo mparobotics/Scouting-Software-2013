@@ -75,7 +75,7 @@
                     echo '<tr><td class="event">'.$response[0].'</td>
                     <td class="'.$alliance.'">'.$response[1].'</td>
                     <td class="'.$matchStatus.'">
-                        <a href="http://scouting.dbztech.com/Analytics/analytics.php?view=match&detail='.str_replace("#", "", $response[0]).'_'.$response[1].'_'.$response[2].'">'.$response[2].'</a></td>
+                        <a href="/Analytics/analytics.php?view=match&detail='.str_replace("#", "", $response[0]).'_'.$response[1].'_'.$response[2].'">'.$response[2].'</a></td>
                     <td class="redscore">'.$response[3].'</td>
                     <td class="bluescore">'.$response[4].'</td>
                     <td class="redalliance">';
