@@ -227,7 +227,7 @@ class analytics
             analytics::$event = "`Event` = '#".$event."' AND ";
         }
         #SELECT * FROM `matchdata` WHERE `Event` = "#FRCCAMA" AND `MatchType` = "Q" AND `MatchNumber` = 6
-        $sql = "SELECT * FROM `matchdata` WHERE ".analytics::$event." `MatchType` = '".$type."' AND `MatchNumber` = ".$number." ORDER BY `MatchType` DESC , `MatchNumber` ASC";
+        $sql = "SELECT * FROM `matchdata` WHERE ".analytics::$event." `MatchType` = '".$type."' AND `MatchNumber` = ".$number." ORDER BY `MatchType` DESC , `MatchNumber` DESC";
         #echo $sql;
         $response = database::returnmultiplerows($sql);
         return $response;
@@ -239,7 +239,7 @@ class analytics
     
     public static function getTeamData($number) {
         #SELECT * FROM `teamdata` WHERE `TeamNumber` = 1234
-        $sql = "SELECT * FROM `teamdata` WHERE ".analytics::$event." `TeamNumber` = ".$number." ORDER BY `Event` DESC , `MatchType` DESC , `MatchNumber` ASC";
+        $sql = "SELECT * FROM `teamdata` WHERE ".analytics::$event." `TeamNumber` = ".$number." ORDER BY `Event` DESC , `MatchType` DESC , `MatchNumber` DESC";
         //echo $sql;
         $response = database::returnmultiplerows($sql);
         return $response;
@@ -247,7 +247,7 @@ class analytics
     
     public static function getTeamMatches($number) {
         #SELECT * FROM `matchdata` WHERE `Red1` = 701 OR `Red2` = 701 OR `Red3` = 701 OR `Blue1` = 701 OR `Blue2` = 701 OR `Blue3` = 701
-        $sql = "SELECT * FROM `matchdata` WHERE `MatchType` != '' AND ".analytics::$event." (`Red1` = ".$number." OR `Red2` = ".$number." OR `Red3` = ".$number." OR `Blue1` = ".$number." OR `Blue2` = ".$number." OR `Blue3` = ".$number.") ORDER BY `Event` DESC , `MatchType` DESC , `MatchNumber` ASC";
+        $sql = "SELECT * FROM `matchdata` WHERE `MatchType` != '' AND ".analytics::$event." (`Red1` = ".$number." OR `Red2` = ".$number." OR `Red3` = ".$number." OR `Blue1` = ".$number." OR `Blue2` = ".$number." OR `Blue3` = ".$number.") ORDER BY `Event` DESC , `MatchType` DESC , `MatchNumber` DESC";
         //echo $sql;
         $response = database::returnmultiplerows($sql);
         return $response;
